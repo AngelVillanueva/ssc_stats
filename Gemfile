@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 ### BASIC FOUNDATION
-ruby '2.1.0'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.1.0' #rvm gemset: ruby-2.1.0@ssc_stats
 gem 'rails', '4.1.0'
 gem 'thin', '~> 1.6.2'
 gem 'pg'
+
+## HEROKU
+gem 'rails_12factor', '0.0.2', group: :staging # needed for manage static assets in Heroku
 
 
 # Use sqlite3 as the database for Active Record
