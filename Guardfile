@@ -2,7 +2,7 @@
 # More info at https://github.com/guard/guard#readme
 require 'active_support/inflector'
 
-guard :rspec, all_after_pass: false do
+guard :rspec, cmd:"spring rspec", all_after_pass: false do
   # Custom Rails Tutorial specs
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) do |m|
     ["spec/routing/#{m[1]}_routing_spec.rb",

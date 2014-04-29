@@ -22,8 +22,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 ### TESTS
 group :development, :test do
+  gem 'spring-commands-rspec', '~> 1.0.2'
   gem 'rspec-rails', '~> 2.14.2'
-  gem 'guard-rspec'
+  gem 'guard-rspec', '~> 4.2.8'
+  gem 'rb-fsevent', '~> 0.9.4'
 end
 group :test do
   gem 'shoulda-matchers', '~> 2.6.0'
