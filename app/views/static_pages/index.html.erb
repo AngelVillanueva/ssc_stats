@@ -1,6 +1,19 @@
 <% provide :title_pipe, t( 'Home' ) %>
 
-<h2>Hello World</h2>
+
+<div class="center hero-unit">
+  <h1>Bienvenidos</h1>
+
+  <h2>
+    Esto es una página de acceso restringido de
+    <a href="http://www.clinicasantacristina.es/">Clínica Santa Cristina</a>
+  </h2>
+
+  <%= link_to "Acceso usuarios", '#', class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("ssc-logo.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
 <p>
   The time is now: <%= Time.now %>
 </p>
