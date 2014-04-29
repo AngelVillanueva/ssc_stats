@@ -31,6 +31,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    awesome_print (1.2.0)
     builder (3.2.2)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -203,6 +204,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.6.0)
+  awesome_print (~> 1.2.0)
   capybara (= 2.2.1)
   coffee-rails (~> 4.0.0)
   guard-rspec (~> 4.2.8)

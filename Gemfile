@@ -35,6 +35,7 @@ end
 
 ### TOOLS
 group :development do
+  gem 'awesome_print', '~> 1.2.0'
   gem 'annotate', ">=2.6.0"
 end
 
