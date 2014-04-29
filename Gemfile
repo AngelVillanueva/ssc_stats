@@ -33,6 +33,11 @@ group :test do
   gem 'capybara', '2.2.1'
 end
 
+### TOOLS
+group :development do
+  gem 'annotate', ">=2.6.0"
+end
+
 ### HEROKU
 gem 'rails_12factor', '0.0.2', group: :staging # needed for manage static assets in Heroku
 
