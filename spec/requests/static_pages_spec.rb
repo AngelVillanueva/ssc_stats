@@ -11,5 +11,9 @@ describe "StaticPages" do
       visit root_path
       expect( page ).to have_content( "Hello" )
     end
+    it "should have the Home title" do
+      visit root_path
+      expect( page ).to have_title( "Santa Cristina | Inicio" )
+    end
   end
 end
