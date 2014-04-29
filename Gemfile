@@ -22,12 +22,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 ### TESTS
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.2'
+  gem 'guard-rspec'
 end
 group :test do
-  gem 'shoulda-matchers'
-  gem 'selenium-webdriver'
-  gem 'capybara'
+  gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'selenium-webdriver', '2.41.0'
+  gem 'capybara', '2.2.1'
 end
 
 ### HEROKU
