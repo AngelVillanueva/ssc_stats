@@ -198,4 +198,5 @@ es:
     errors:
       <<: *errors
   Home: "Inicio"
-  Page_title: "Santa Cristina | %{pipe}"
+  Page_title: "Clínica Santa Cristina | %{pipe}"
+  Site_description: "Clínica Santa Cristina - Estadísticas"
