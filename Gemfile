@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+### USERS
+gem 'devise' # authentication
+
 ### TESTS
 group :development, :test do
   gem 'spring-commands-rspec', '~> 1.0.2'
@@ -38,6 +41,7 @@ end
 
 ### TOOLS
 group :development do
+  gem 'spring'  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'awesome_print', '~> 1.2.0'
   gem 'annotate', ">=2.6.0"
   gem 'better_errors', '~> 1.1.0' # cool error info pages in development. Trace last error also by navigating to 0.0.0.0:3000/__better_errors
@@ -61,8 +65,7 @@ gem 'rails_12factor', '0.0.2', group: :staging # needed for manage static assets
 
 
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
