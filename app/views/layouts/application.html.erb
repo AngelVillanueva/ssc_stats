@@ -7,7 +7,7 @@
   <meta name="description" content="<%= t('Site_description') %>">
   <meta http-equiv="Content-Language" content="<%= I18n.locale %>" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag %>
   <%= render 'shared/fonts' unless Rails.env.test? %>
   <%= csrf_meta_tags %>

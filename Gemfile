@@ -5,6 +5,7 @@ ruby '2.1.0' #rvm gemset: ruby-2.1.0@ssc_stats
 gem 'rails', '4.1.0'
 gem 'thin', '~> 1.6.2'
 gem 'pg', '~> 0.17'
+gem 'haml'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # bootstrap
