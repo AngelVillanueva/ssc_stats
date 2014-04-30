@@ -50,6 +50,7 @@ es:
     custom:
       sign_in: "Acceder"
       sign_out: "Desconectar"
+      forgot_password: "¿Olvidó su contraseña?"
   errors:
     messages:
       already_confirmed: "ya ha sido confirmado, por favor intente iniciar sesión."
