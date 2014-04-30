@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 ### USERS
-gem 'devise' # authentication
+gem 'devise', '~> 3.2.4' # authentication
 
 ### TESTS
 group :development, :test do
@@ -37,6 +37,8 @@ group :test do
   gem 'shoulda-matchers', '~> 2.6.0'
   gem 'selenium-webdriver', '2.41.0'
   gem 'capybara', '2.2.1'
+  gem 'launchy', '2.4.2' # adds save_and_open_page method to capybara
+  gem 'factory_girl_rails', '~> 4.4.0'
 end
 
 ### TOOLS
