@@ -14,7 +14,9 @@
     = render 'shared/ie_shim'
   %body
     .container
-      = render 'shared/flash', flash: flash
-      = yield
+      = render 'shared/navbar'
+      .container{ 'role' => 'main' }
+        = render 'shared/flash', flash: flash
+        = yield
       = render 'shared/footer'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

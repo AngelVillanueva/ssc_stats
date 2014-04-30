@@ -1,5 +1,4 @@
-%footer.footer
-  - if usuario_signed_in?
-    %nav
-      %ul
-        %li= link_to t("devise.custom.sign_out"), destroy_usuario_session_path, method: 'delete', class: 'logout'
+.container
+  %footer.footer
+  = link_to image_tag( 'ssc-logo.png', alt: "Clínica Santa Cristina" ),
+  'http://www.clinicasantacristina.es', class: 'pull-right'

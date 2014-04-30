@@ -1,0 +1,6 @@
+.navbar.navbar-inverse.navbar-fixed-top{ 'role' => 'navigation' }
+  .container
+    .navbar-collapse.collapse
+      - if usuario_signed_in?
+        %ul.nav.navbar-nav
+          %li= link_to t("devise.custom.sign_out"), destroy_usuario_session_path, method: 'delete', class: 'logout'
