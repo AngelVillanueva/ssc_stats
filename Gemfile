@@ -5,8 +5,11 @@ ruby '2.1.0' #rvm gemset: ruby-2.1.0@ssc_stats
 gem 'rails', '4.1.0'
 gem 'thin', '~> 1.6.2'
 gem 'pg', '~> 0.17'
+gem 'haml'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+# bootstrap
+gem 'bootstrap-sass', '~> 3.1.1.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
