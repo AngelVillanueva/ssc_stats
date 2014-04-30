@@ -15,7 +15,7 @@ describe "StaticPages" do
       visit root_path
       fill_in "usuario[email]", with: usuario.email
       fill_in "usuario[password]", with: usuario.password
-      click_button "Sign in"
+      click_button I18n.t( 'devise.custom.sign_in' )
     end
     subject { page }
 
