@@ -51,6 +51,12 @@ es:
       sign_in: "Acceder"
       sign_out: "Desconectar"
       forgot_password: "¿Olvidó su contraseña?"
+      remember_me: "Recordarme en este ordenador"
+      passwords:
+        reset_password_request: "Se ha recibido una solicitud para cambiar su contraseña. Haga click en el siguiente enlace para generar una nueva."
+        change_my_password: "Generar nueva contraseña."
+        it_wasnt_me: "Si no ha solicitado el cambio de contraseña no es necesario que haga nada."
+        password_wont_change: "No se generará una nueva contraseña a menos que lo solicite."
   errors:
     messages:
       already_confirmed: "ya ha sido confirmado, por favor intente iniciar sesión."
