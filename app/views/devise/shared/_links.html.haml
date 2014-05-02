@@ -1,0 +1,18 @@
+- if controller_name != 'sessions'
+  %div= link_to t('devise.custom.sign_in'), new_session_path(resource_name)
+
+- if devise_mapping.registerable? && controller_name != 'registrations'
+  %div= link_to t('devise.custom.sign_up'), new_registration_path(resource_name)
+
+- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+  %div= link_to t('devise.custom.forgot_password'), new_password_path(resource_name)
+
+- if devise_mapping.confirmable? && controller_name != 'confirmations'
+  %div= link_to t('devise.custom.didnt_receive_confirmation_instructions?'), new_confirmation_path(resource_name)
+
+- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+  %div= link_to t('devise.custom.didnt_receive_unlock_instructions?'), new_unlock_path(resource_name)
+
+- if devise_mapping.omniauthable?
+  - resource_class.omniauth_providers.each do |provider|
+    %div= link_to t("devise.custom.sign_in_with", provider: "#{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)

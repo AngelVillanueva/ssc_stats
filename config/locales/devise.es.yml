@@ -50,13 +50,18 @@ es:
     custom:
       sign_in: "Acceder"
       sign_out: "Desconectar"
+      sign_up: "Registrarse"
       forgot_password: "¿Olvidó su contraseña?"
       remember_me: "Recordarme en este ordenador"
+      didnt_receive_confirmation_instructions: ¿No recibió las instrucciones para confirmar su cuenta?
+      didnt_receive_unlock_instructions: ¿No recibió las instrucciones para confirmar su cuenta?
+      sign_in_with: "Acceder a través de %{provider}"
       passwords:
         reset_password_request: "Se ha recibido una solicitud para cambiar su contraseña. Haga click en el siguiente enlace para generar una nueva."
         change_my_password: "Generar nueva contraseña."
         it_wasnt_me: "Si no ha solicitado el cambio de contraseña no es necesario que haga nada."
         password_wont_change: "No se generará una nueva contraseña a menos que lo solicite."
+        send_reset_password_instructions: "Resetear"
   errors:
     messages:
       already_confirmed: "ya ha sido confirmado, por favor intente iniciar sesión."
