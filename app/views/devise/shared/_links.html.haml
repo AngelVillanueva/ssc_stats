@@ -1,5 +1,5 @@
 - if controller_name != 'sessions'
-  %div= link_to t('devise.custom.sign_in'), new_session_path(resource_name)
+  %div= link_to t('devise.custom.back_to_sign_in'), new_session_path(resource_name)
 
 - if devise_mapping.registerable? && controller_name != 'registrations'
   %div= link_to t('devise.custom.sign_up'), new_registration_path(resource_name)

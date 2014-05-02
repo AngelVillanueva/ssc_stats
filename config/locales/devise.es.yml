@@ -49,6 +49,7 @@ es:
       unlocked: "Su cuenta ha sido desbloqueada. Por favor inicie sesión para continuar."
     custom:
       sign_in: "Acceder"
+      back_to_sign_in: "Volver a la página de acceso"
       sign_out: "Desconectar"
       sign_up: "Registrarse"
       forgot_password: "¿Olvidó su contraseña?"
