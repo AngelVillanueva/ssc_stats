@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: precios
+#
+#  id                  :integer          not null, primary key
+#  importe             :decimal(, )
+#  vigencia            :integer
+#  incluido_en_forfait :boolean
+#  compania_id         :integer
+#
+
 require 'spec_helper'
 
 describe Precio do

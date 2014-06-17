@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: companias
+#
+#  id     :integer          not null, primary key
+#  nombre :string(255)
+#
+
 require 'spec_helper'
 
 

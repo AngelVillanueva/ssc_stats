@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: precios
+#
+#  id                  :integer          not null, primary key
+#  importe             :decimal(, )
+#  vigencia            :integer
+#  incluido_en_forfait :boolean
+#  compania_id         :integer
+#
+
 class Precio < ActiveRecord::Base
   belongs_to :compania
   validates_numericality_of :importe, greater_than_or_equal_to: 0
