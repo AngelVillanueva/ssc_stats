@@ -213,6 +213,12 @@ es:
         importe: "Importe"
         vigencia: "Válido para"
         incluido_en_forfait: "Incluido en Forfait"
+      compania:
+        nombre: "Nombre"
+    models:
+      usuario: "Usuario"
+      precio: "Precio"
+      compania: "Compañía"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"
