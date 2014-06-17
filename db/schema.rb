@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617220359) do
+ActiveRecord::Schema.define(version: 20140617222138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140617220359) do
     t.boolean "incluido_en_forfait"
     t.integer "compania_id"
   end
+
+  add_index "precios", ["vigencia"], name: "index_precios_on_vigencia", using: :btree
 
   create_table "usuarios", force: true do |t|
     t.string   "email",                  default: "", null: false
