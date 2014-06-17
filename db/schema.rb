@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617165359) do
+ActiveRecord::Schema.define(version: 20140617174551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140617165359) do
   create_table "precios", force: true do |t|
     t.decimal "importe"
     t.integer "vigencia"
-    t.boolean "forfait?"
+    t.boolean "incluido_en_forfait"
   end
 
   create_table "usuarios", force: true do |t|
