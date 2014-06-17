@@ -46,7 +46,7 @@ describe "Dashboard" do
   describe "application management is done via Rails Admin" do
     before { visit rails_admin.dashboard_path }
     it "should be cool" do
-      expect( page ).to have_title( "I am kool" )
+      expect( page ).to have_css( "a.brand", text: "Admin" )
     end
   end
 
