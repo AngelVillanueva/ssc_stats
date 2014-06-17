@@ -10,6 +10,12 @@ module ValidUserRequestHelperCustom
       fill_in "usuario[password]", with: usuario.password
       click_button I18n.t( 'devise.custom.sign_in' )
     end
+    def go_dashboard_and_login
+      visit rails_admin.dashboard_path
+      fill_in "usuario[email]", with: usuario.email
+      fill_in "usuario[password]", with: usuario.password
+      click_button I18n.t( 'devise.custom.sign_in' )
+    end
 end
 
 # Configure these to modules as helpers in the appropriate tests.
