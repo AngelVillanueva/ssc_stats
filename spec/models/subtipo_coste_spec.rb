@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: subtipos_coste
+#
+#  id          :integer          not null, primary key
+#  descripcion :string(255)
+#
+
 require 'spec_helper'
 
 describe SubtipoCoste do

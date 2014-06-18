@@ -2,8 +2,9 @@
 #
 # Table name: tipos_coste_con_tarifa
 #
-#  id       :integer          not null, primary key
-#  concepto :string(255)
+#  id               :integer          not null, primary key
+#  concepto         :string(255)
+#  subtipo_coste_id :integer
 #
 
 class TipoCosteConTarifa < ActiveRecord::Base

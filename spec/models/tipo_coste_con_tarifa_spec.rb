@@ -2,8 +2,9 @@
 #
 # Table name: tipos_coste_con_tarifa
 #
-#  id       :integer          not null, primary key
-#  concepto :string(255)
+#  id               :integer          not null, primary key
+#  concepto         :string(255)
+#  subtipo_coste_id :integer
 #
 
 require 'spec_helper'
@@ -11,6 +12,7 @@ require 'spec_helper'
 describe TipoCosteConTarifa do
   it { should respond_to :precios }
   it { should respond_to :subtipo_coste }
+  
   it { should validate_presence_of :concepto }
   it { should validate_uniqueness_of :concepto }
 
