@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618153152) do
+ActiveRecord::Schema.define(version: 20140618163132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20140618153152) do
   end
 
   add_index "companias", ["nombre"], name: "index_companias_on_nombre", using: :btree
+
+  create_table "episodios", force: true do |t|
+    t.integer "nhc"
+    t.date    "fecha_alta"
+    t.boolean "es_ambulante"
+    t.integer "compania_id"
+    t.integer "medico_id"
+  end
 
   create_table "precios", force: true do |t|
     t.decimal "importe"

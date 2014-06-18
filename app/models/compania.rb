@@ -8,6 +8,7 @@
 
 class Compania < ActiveRecord::Base
   has_many :precios
+  has_many :episodios
   validates :nombre, presence: true
   validates_uniqueness_of :nombre, case_sensitive: false
 
