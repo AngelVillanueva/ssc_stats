@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618095608) do
+ActiveRecord::Schema.define(version: 20140618144846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,15 @@ ActiveRecord::Schema.define(version: 20140618095608) do
 
   add_index "precios", ["vigencia"], name: "index_precios_on_vigencia", using: :btree
 
+  create_table "subtipos_coste", force: true do |t|
+    t.string "descripcion"
+  end
+
+  add_index "subtipos_coste", ["descripcion"], name: "index_subtipos_coste_on_descripcion", using: :btree
+
   create_table "tipos_coste_con_tarifa", force: true do |t|
-    t.string "concepto"
+    t.string  "concepto"
+    t.integer "subtipo_coste_id"
   end
 
   create_table "usuarios", force: true do |t|
