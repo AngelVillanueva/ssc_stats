@@ -37,7 +37,7 @@ end
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular('estancia', 'estancias')
   inflect.irregular('honorario_medico', 'honorarios_medicos')
-  inflect.irregular('compañia', 'compañias')
+  inflect.irregular('compania', 'companias')
   inflect.irregular('codigo_omc', 'codigos_omc')
   inflect.irregular('subtipo_coste', 'subtipos_coste')
   inflect.irregular('tipo_coste_con_tarifa', 'tipos_coste_con_tarifa')

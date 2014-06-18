@@ -209,6 +209,20 @@ es:
         last_sign_in_at: "Último acceso el"
         current_sign_in_ip: "IP de acceso actual"
         last_sign_in_ip: "IP de último acceso el"
+      precio:
+        importe: "Importe"
+        vigencia: "Válido para"
+        incluido_en_forfait: "Incluido en Forfait"
+        compania: "Compañía"
+        importe_help: "Obligatorio. Ej: 99.87"
+        vigencia_help: "Obligatorio. Ej: 2015"
+        incluido_en_forfait_help: "Desmarcar si el concepto no se incluye en el Forfait de la Compañía"
+      compania:
+        nombre: "Nombre"
+    models:
+      usuario: "Usuario"
+      precio: "Precio"
+      compania: "Compañía"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"
