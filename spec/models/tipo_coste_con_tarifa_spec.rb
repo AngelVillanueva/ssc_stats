@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: tipos_coste_con_tarifa
+#
+#  id       :integer          not null, primary key
+#  concepto :string(255)
+#
+
 require 'spec_helper'
 
 describe TipoCosteConTarifa do

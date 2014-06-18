@@ -2,11 +2,12 @@
 #
 # Table name: precios
 #
-#  id                  :integer          not null, primary key
-#  importe             :decimal(, )
-#  vigencia            :integer
-#  incluido_en_forfait :boolean
-#  compania_id         :integer
+#  id                       :integer          not null, primary key
+#  importe                  :decimal(, )
+#  vigencia                 :integer
+#  incluido_en_forfait      :boolean
+#  compania_id              :integer
+#  tipo_coste_con_tarifa_id :integer
 #
 
 class Precio < ActiveRecord::Base

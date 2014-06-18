@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: tipos_coste_con_tarifa
+#
+#  id       :integer          not null, primary key
+#  concepto :string(255)
+#
+
 class TipoCosteConTarifa < ActiveRecord::Base
   has_many :precios
   validates :concepto, presence: true
