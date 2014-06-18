@@ -11,6 +11,7 @@
 #
 
 class Episodio < ActiveRecord::Base
+  belongs_to :compania
   validates :nhc, :fecha_alta, presence: true
   validates_numericality_of :nhc, greater_than_or_equal_to: 1
   validate :fecha_alta_range

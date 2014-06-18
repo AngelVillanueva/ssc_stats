@@ -16,8 +16,9 @@ describe Precio do
   it { should respond_to :importe }
   it { should respond_to :vigencia }
   it { should respond_to :incluido_en_forfait }
-  it { should respond_to :compania }
-  it { should respond_to :tipo_coste_con_tarifa }
+
+  it { should belong_to :compania }
+  it { should belong_to :tipo_coste_con_tarifa }
 
   it { should validate_presence_of :importe }
   it { should validate_presence_of :vigencia}
