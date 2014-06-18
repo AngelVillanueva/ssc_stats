@@ -15,8 +15,9 @@ describe TipoCosteConTarifa do
   it { should validate_uniqueness_of :concepto }
 
   describe "should validate concepto uniqueness in a non case sensitive way" do
-    let( :concepto_coste ) { FactoryGirl.create( :tipo_coste_con_tarifa ) }
-    let( :concepto_coste_2 ) { FactoryGirl.create( :tipo_coste_con_tarifa, concepto: "Otro" ) }
+    let( :subtipo ) { FactoryGirl.create( :subtipo_coste ) }
+    let( :concepto_coste ) { FactoryGirl.create( :tipo_coste_con_tarifa, subtipo_coste: subtipo ) }
+    let( :concepto_coste_2 ) { FactoryGirl.create( :tipo_coste_con_tarifa, concepto: "Otro", subtipo_coste: subtipo ) }
     let( :concepto_nombre ) { concepto_coste.concepto.downcase }
     before { concepto_coste_2.concepto = concepto_nombre }
     subject { concepto_coste_2 }
