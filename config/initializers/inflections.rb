@@ -42,4 +42,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular('subtipo_coste', 'subtipos_coste')
   inflect.irregular('tipo_coste_con_tarifa', 'tipos_coste_con_tarifa')
   inflect.irregular('tipo_coste_sin_tarifa', 'tipos_coste_sin_tarifa')
+  inflect.irregular('grupo_quirurgico', 'grupos_quirurgicos')
 end
