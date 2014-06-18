@@ -95,7 +95,7 @@ es:
     form:
       cancel: "Cancelar"
       basic_info: "Información básica"
-      required: "Requerido"
+      required: "Obligatorio"
       optional: "Opcional"
       one_char: "carácter"
       char_length_up_to: "longitud de hasta"
