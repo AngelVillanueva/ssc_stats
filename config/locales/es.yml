@@ -119,6 +119,8 @@ es:
       too_long: es demasiado largo (%{count} caracteres máximo)
       too_short: es demasiado corto (%{count} caracteres mínimo)
       wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      too_old: es demasiado antiguo
+      too_new: es demasiado moderno
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:

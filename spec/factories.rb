@@ -4,6 +4,10 @@ FactoryGirl.define do
     email "gestor@clinicasantacristina.es"
     password "santacristina"
   end
+  factory :episodio do
+    nhc 1111
+    fecha_alta Date.today
+  end
   factory :compania do
     nombre "Factory de Compañía"
   end
