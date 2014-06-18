@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618140109) do
+ActiveRecord::Schema.define(version: 20140618140739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 20140618140109) do
   end
 
   create_table "tipos_coste_con_tarifa", force: true do |t|
-    t.string "concepto"
+    t.string  "concepto"
+    t.integer "subtipo_coste_id"
   end
 
   create_table "usuarios", force: true do |t|

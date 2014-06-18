@@ -7,8 +7,12 @@ FactoryGirl.define do
   factory :compania do
     nombre "Factory de Compañía"
   end
+  factory :subtipo_coste do
+    descripcion "Otros"
+  end
   factory :tipo_coste_con_tarifa do
     concepto "Electrocardiograma"
+    subtipo_coste
   end
   factory :precio do
     importe 100
