@@ -7,6 +7,7 @@
 #
 
 class TipoCosteConTarifa < ActiveRecord::Base
+  belongs_to :subtipo_coste
   has_many :precios
   validates :concepto, presence: true
   validates_uniqueness_of :concepto, case_sensitive: false
