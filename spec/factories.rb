@@ -7,6 +7,7 @@ FactoryGirl.define do
   factory :episodio do
     nhc 1111
     fecha_alta Date.today
+    compania
   end
   factory :compania do
     nombre "Factory de Compañía"
