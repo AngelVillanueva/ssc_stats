@@ -10,6 +10,7 @@ require 'spec_helper'
 
 describe SubtipoCoste do
   it { should respond_to :tipos_coste_con_tarifa }
+  it { should respond_to :tipos_coste_sin_tarifa }
 
   it { should validate_presence_of :descripcion }
   it { should validate_uniqueness_of :descripcion }

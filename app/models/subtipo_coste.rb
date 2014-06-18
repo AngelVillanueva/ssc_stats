@@ -8,6 +8,7 @@
 
 class SubtipoCoste < ActiveRecord::Base
   has_many :tipos_coste_con_tarifa
+  has_many :tipos_coste_sin_tarifa
   validates :descripcion, presence: true
   validates_uniqueness_of :descripcion, case_sensitive: false
 

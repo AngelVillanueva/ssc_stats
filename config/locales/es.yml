@@ -221,11 +221,19 @@ es:
         nombre: "Nombre"
       tipo_coste_con_tarifa:
         concepto: "Concepto"
+        subtipo_coste: "Clase de coste"
+      tipo_coste_sin_tarifa:
+        concepto: "Concepto"
+        subtipo_coste: "Clase de coste"
+      subtipo_coste:
+        descripcion: "Descripción"
     models:
       usuario: "Usuario"
       precio: "Precio"
       compania: "Compañía"
       tipo_coste_con_tarifa: "Concepto de coste con tarifa"
+      subtipo_coste: "Clase de coste"
+      tipo_coste_sin_tarifa: "Concepto de coste sin tarifa"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"
