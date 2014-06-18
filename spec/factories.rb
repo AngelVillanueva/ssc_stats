@@ -14,6 +14,10 @@ FactoryGirl.define do
     concepto "Electrocardiograma"
     subtipo_coste
   end
+  factory :tipo_coste_sin_tarifa do
+    concepto "Producto sanitario"
+    subtipo_coste
+  end
   factory :precio do
     importe 100
     vigencia Date.today.year.to_i

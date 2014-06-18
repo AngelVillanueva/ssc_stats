@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618152043) do
+ActiveRecord::Schema.define(version: 20140618153152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140618152043) do
     t.string  "concepto"
     t.integer "subtipo_coste_id"
   end
+
+  add_index "tipos_coste_sin_tarifa", ["concepto"], name: "index_tipos_coste_sin_tarifa_on_concepto", using: :btree
 
   create_table "usuarios", force: true do |t|
     t.string   "email",                  default: "", null: false
