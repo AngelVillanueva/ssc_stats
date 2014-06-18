@@ -31,5 +31,10 @@ describe "Tipos de Coste con Tarifa management" do
       click_the_action_link_for "new"
       expect( page).to_not have_css( "div.precios_field")
     end
+    it "by seeing its SubtipoCoste when editing" do
+      click_the_menu_link_for "tipo_coste_con_tarifa"
+      click_the_action_link_for "new"
+      expect( page).to have_css( "div.subtipo_coste_field")
+    end
   end
 end

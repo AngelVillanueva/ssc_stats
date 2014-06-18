@@ -15,6 +15,7 @@ class TipoCosteConTarifa < ActiveRecord::Base
   rails_admin do
     edit do
       field :concepto
+      field :subtipo_coste
     end
   end
 end
