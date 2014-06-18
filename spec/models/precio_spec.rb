@@ -21,10 +21,12 @@ describe Precio do
   it { should validate_presence_of :importe }
   it { should validate_presence_of :vigencia}
   it { should validate_presence_of :compania }
+  it { should validate_presence_of :tipo_coste_con_tarifa }
 
   it { should validate_numericality_of(:importe).is_greater_than_or_equal_to(0) }
   it { should validate_numericality_of(:vigencia).is_greater_than_or_equal_to(2000) }
   it { should validate_numericality_of(:vigencia).is_less_than_or_equal_to(2030) }
+  
   describe "with default Incluido en Forfait as true" do
     let( :un_precio ) { Precio.new }
     subject { un_precio }

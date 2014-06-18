@@ -16,6 +16,7 @@ RailsAdmin.config do |config|
 
   # Label methods for model instances:
   config.label_methods << :nombre # Default is [:name, :title]
+  config.label_methods << :concepto # Default is [:name, :title]
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
