@@ -5,12 +5,12 @@ describe SubtipoCoste do
 
   it { should validate_presence_of :descripcion }
   it { should validate_uniqueness_of :descripcion }
-  # describe "should validate descripcion uniqueness in a non case sensitive way" do
-  #   let( :concepto_coste ) { FactoryGirl.create( :tipo_coste_con_tarifa ) }
-  #   let( :concepto_coste_2 ) { FactoryGirl.create( :tipo_coste_con_tarifa, concepto: "Otro" ) }
-  #   let( :concepto_nombre ) { concepto_coste.concepto.downcase }
-  #   before { concepto_coste_2.concepto = concepto_nombre }
-  #   subject { concepto_coste_2 }
-  #   it { should_not be_valid }
-  # end
+  describe "should validate descripcion uniqueness in a non case sensitive way" do
+    let( :subtipo ) { FactoryGirl.create( :subtipo_coste ) }
+    let( :subtipo_2 ) { FactoryGirl.create( :subtipo_coste, descripcion: "Otra" ) }
+    let( :descripcion_1 ) { subtipo.descripcion.downcase }
+    before { subtipo_2.descripcion = descripcion_1 }
+    subject { subtipo_2 }
+    it { should_not be_valid }
+  end
 end
