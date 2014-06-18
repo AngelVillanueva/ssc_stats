@@ -15,6 +15,7 @@ require 'spec_helper'
 describe Episodio do
   it { should respond_to :nhc }
   it { should respond_to :fecha_alta }
+  it { should respond_to :es_ambulante }
 
   it { should validate_presence_of :nhc }
   it { should validate_numericality_of(:nhc).is_greater_than_or_equal_to(1) }
@@ -30,5 +31,10 @@ describe Episodio do
     before { episodio.fecha_alta = "01/01/2031".to_date }
     subject { episodio }
     it { should_not be_valid }
+  end
+  describe "its es_ambulante field should defaults to false" do
+    let( :episodio ) { Episodio.new }
+    subject { episodio }
+    its( :es_ambulante ) { should eql false }
   end
 end
