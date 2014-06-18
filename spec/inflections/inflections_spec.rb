@@ -20,5 +20,6 @@ describe "Spanish inflections" do
     expect( 'TipoCosteConTarifa'.tableize ).to eql( 'tipos_coste_con_tarifa' )
     expect( 'SubtipoCoste'.tableize ).to eql( 'subtipos_coste' )
     expect( 'TipoCosteSinTarifa'.tableize ).to eql( 'tipos_coste_sin_tarifa' )
+    expect( 'GrupoQuirurgico'.tableize ).to eql( 'grupos_quirurgicos' )
   end
 end

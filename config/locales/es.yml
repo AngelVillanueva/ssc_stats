@@ -219,10 +219,13 @@ es:
         incluido_en_forfait_help: "Desmarcar si el concepto no se incluye en el Forfait de la Compañía"
       compania:
         nombre: "Nombre"
+      tipo_coste_con_tarifa:
+        concepto: "Concepto"
     models:
       usuario: "Usuario"
       precio: "Precio"
       compania: "Compañía"
+      tipo_coste_con_tarifa: "Concepto de coste con tarifa"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"
