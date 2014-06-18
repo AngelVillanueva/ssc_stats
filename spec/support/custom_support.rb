@@ -16,6 +16,14 @@ module ValidUserRequestHelperCustom
       fill_in "usuario[password]", with: usuario.password
       click_button I18n.t( 'devise.custom.sign_in' )
     end
+    def click_the_menu_link_for model
+      model_menu_link = find( :css, "li[data-model=\"#{model}\"] a" )
+      model_menu_link.click
+    end
+    def click_the_action_link_for action
+      action_link = find( :css, "li.#{action}_collection_link a")
+      action_link.click
+    end
 end
 
 # Configure these to modules as helpers in the appropriate tests.

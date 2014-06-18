@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Precios management" do
   describe "authorized users should be able to do it" do
     let( :usuario ) { FactoryGirl.create( :usuario ) }
-    let( :precio ) { FactoryGirl.create( :precio ) }
     let( :compania ) { FactoryGirl.create( :compania ) }
+    let( :precio ) { FactoryGirl.create( :precio, compania: compania ) }
     before { go_dashboard_and_login }
 
     it "by seeing the link" do
