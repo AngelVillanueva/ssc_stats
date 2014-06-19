@@ -17,7 +17,7 @@ FactoryGirl.define do
     nombre "Factory de Compañía"
   end
   factory :medico do
-    nombre "Gregory"
+    nombre_pila "Gregory"
     apellidos "House MD"
     especialidad
   end

@@ -39,5 +39,12 @@ describe "Episodios management" do
       click_the_action_link_for "new"
       expect( page).to_not have_css( "div.especialidad_field")
     end
+    it "by seeing its Medico fullname when editing" do
+      expect( medico ).to be_valid
+      click_the_menu_link_for "episodio"
+      click_the_action_link_for "new"
+      save_and_open_page
+      expect( page).to have_select( "episodio_medico_id", :options => ['','Gregory House MD'])
+    end
   end
 end
