@@ -8,6 +8,7 @@ FactoryGirl.define do
     nhc 1111
     fecha_alta Date.today
     compania
+    medico
   end
   factory :compania do
     nombre "Factory de Compañía"

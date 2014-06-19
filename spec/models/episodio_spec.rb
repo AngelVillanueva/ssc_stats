@@ -24,6 +24,7 @@ describe Episodio do
   it { should validate_numericality_of(:nhc).is_greater_than_or_equal_to(1) }
   it { should validate_presence_of :fecha_alta }
   it { should validate_presence_of :compania }
+  it { should validate_presence_of :medico }
   describe "its fecha de alta should be at least from year 2000" do
     let( :episodio ) { FactoryGirl.create( :episodio ) }
     before { episodio.fecha_alta = "31/12/1999".to_date }
