@@ -235,6 +235,11 @@ es:
         es_ambulante: "Ambulante"
         compania: "Compañía"
         medico: "Médico"
+      medico:
+        nombre: "Nombre"
+        apellidos: "Apellidos"
+        nombre_completo: "Nombre completo"
+        especialidad: "Especialidad"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -243,6 +248,7 @@ es:
       subtipo_coste: "Clase de coste"
       tipo_coste_sin_tarifa: "Concepto de coste sin tarifa"
       episodio: "Episodio"
+      medico: "Médico"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"

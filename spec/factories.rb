@@ -12,6 +12,10 @@ FactoryGirl.define do
   factory :compania do
     nombre "Factory de Compañía"
   end
+  factory :medico do
+    nombre "Gregory"
+    apellidos "House MD"
+  end
   factory :subtipo_coste do
     descripcion "Otros"
   end

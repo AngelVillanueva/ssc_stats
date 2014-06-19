@@ -18,6 +18,7 @@ describe Episodio do
   it { should respond_to :es_ambulante }
 
   it { should belong_to :compania }
+  it { should belong_to :medico }
 
   it { should validate_presence_of :nhc }
   it { should validate_numericality_of(:nhc).is_greater_than_or_equal_to(1) }
