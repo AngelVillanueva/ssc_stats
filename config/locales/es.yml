@@ -236,7 +236,7 @@ es:
         compania: "Compañía"
         medico: "Médico"
       medico:
-        nombre: "Nombre"
+        nombre_pila: "Nombre"
         apellidos: "Apellidos"
         nombre_completo: "Nombre completo"
         especialidad: "Especialidad"
