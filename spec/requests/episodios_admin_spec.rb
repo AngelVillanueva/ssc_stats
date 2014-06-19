@@ -34,5 +34,10 @@ describe "Episodios management" do
       click_the_menu_link_for "episodio"
       expect( page ).to have_css( "td.especialidad_field", text: "Obstetricia" )
     end
+    it "by not seeing its Episodio when editing" do
+      click_the_menu_link_for "episodio"
+      click_the_action_link_for "new"
+      expect( page).to_not have_css( "div.especialidad_field")
+    end
   end
 end

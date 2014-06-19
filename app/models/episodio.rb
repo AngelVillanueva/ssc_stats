@@ -45,7 +45,15 @@ class Episodio < ActiveRecord::Base
       field :compania
       field :medico
       field :especialidad
-      field :ambulante
+      field :es_ambulante
+    end
+    edit do
+      field :id
+      field :fecha_alta
+      field :nhc
+      field :compania
+      field :medico
+      field :es_ambulante
     end
   end
 end
