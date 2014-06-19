@@ -33,11 +33,11 @@ class Episodio < ActiveRecord::Base
   end
 
   rails_admin do
-    configure :medico do
-      pretty_value do
-        bindings[:object].medico.nombre_completo
-      end
-    end
+    # configure :medico do
+    #   pretty_value do
+    #     bindings[:object].medico.nombre_completo
+    #   end
+    # end
     list do
       field :id
       field :fecha_alta
