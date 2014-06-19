@@ -4,8 +4,22 @@ FactoryGirl.define do
     email "gestor@clinicasantacristina.es"
     password "santacristina"
   end
+  factory :episodio do
+    nhc 1111
+    fecha_alta Date.today
+    compania
+    medico
+  end
+  factory :especialidad do
+    nombre "Obstetricia"
+  end
   factory :compania do
     nombre "Factory de Compañía"
+  end
+  factory :medico do
+    nombre "Gregory"
+    apellidos "House MD"
+    especialidad
   end
   factory :subtipo_coste do
     descripcion "Otros"

@@ -11,7 +11,9 @@ require 'spec_helper'
 
 describe Compania do
   it { should respond_to :nombre }
-  it { should respond_to :precios }
+
+  it { should have_many :precios }
+  it { should have_many :episodios }
 
   it { should validate_presence_of :nombre }
   it { should validate_uniqueness_of :nombre }

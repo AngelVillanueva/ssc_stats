@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe TipoCosteSinTarifa do
   it { should respond_to :concepto }
+  it { should belong_to :subtipo_coste }
 
   it { should validate_presence_of :concepto }
   it { should validate_uniqueness_of :concepto }
