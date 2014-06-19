@@ -10,12 +10,16 @@ FactoryGirl.define do
     compania
     medico
   end
+  factory :especialidad do
+    nombre "Obstetricia"
+  end
   factory :compania do
     nombre "Factory de Compañía"
   end
   factory :medico do
     nombre "Gregory"
     apellidos "House MD"
+    especialidad
   end
   factory :subtipo_coste do
     descripcion "Otros"

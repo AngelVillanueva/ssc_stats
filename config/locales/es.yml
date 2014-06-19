@@ -240,6 +240,8 @@ es:
         apellidos: "Apellidos"
         nombre_completo: "Nombre completo"
         especialidad: "Especialidad"
+      especialidad:
+        nombre: "Nombre"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -249,6 +251,7 @@ es:
       tipo_coste_sin_tarifa: "Concepto de coste sin tarifa"
       episodio: "Episodio"
       medico: "Médico"
+      especialidad: "Especialidad"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"

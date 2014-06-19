@@ -27,5 +27,12 @@ describe "Episodios management" do
       click_the_menu_link_for "episodio"
       expect( page ).to have_css( "td.medico_field", text: "Gregory House MD" )
     end
+    it "by seeing the related Especialidad" do
+      expect( compania ).to be_valid
+      expect( medico ).to be_valid
+      expect( episodio ).to be_valid
+      click_the_menu_link_for "episodio"
+      expect( page ).to have_css( "td.especialidad_field", text: "Obstetricia" )
+    end
   end
 end

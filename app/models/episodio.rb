@@ -13,6 +13,7 @@
 class Episodio < ActiveRecord::Base
   belongs_to :compania
   belongs_to :medico
+  has_one :especialidad, through: :medico
   validates :nhc, :fecha_alta, :compania, :medico, presence: true
   validates_numericality_of :nhc, greater_than_or_equal_to: 1
   validate :fecha_alta_range
@@ -36,6 +37,15 @@ class Episodio < ActiveRecord::Base
       pretty_value do
         bindings[:object].medico.nombre_completo
       end
+    end
+    list do
+      field :id
+      field :fecha_alta
+      field :nhc
+      field :compania
+      field :medico
+      field :especialidad
+      field :ambulante
     end
   end
 end
