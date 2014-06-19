@@ -6,4 +6,12 @@ class Medico < ActiveRecord::Base
   def nombre_completo
     "#{nombre} #{apellidos}"
   end
+
+  rails_admin do
+    edit do
+      field :nombre
+      field :apellidos
+      field :especialidad
+    end
+  end
 end
