@@ -21,6 +21,8 @@ FactoryGirl.define do
     apellidos "House MD"
     especialidad
   end
+  factory :estancia do
+  end
   factory :subtipo_coste do
     descripcion "Otros"
   end

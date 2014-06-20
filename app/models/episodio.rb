@@ -33,6 +33,10 @@ class Episodio < ActiveRecord::Base
     end
   end
 
+  def total_estancias
+    self.estancias.map(&:cantidad).inject(0, :+)
+  end
+
   rails_admin do
     list do
       field :id
@@ -42,6 +46,7 @@ class Episodio < ActiveRecord::Base
       field :medico
       field :especialidad
       field :es_ambulante
+      field :total_estancias
     end
     edit do
       field :fecha_alta do
@@ -53,6 +58,7 @@ class Episodio < ActiveRecord::Base
       field :compania
       field :medico
       field :es_ambulante
+      field :estancias
     end
   end
 end

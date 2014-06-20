@@ -16,6 +16,7 @@ describe Episodio do
   it { should respond_to :nhc }
   it { should respond_to :fecha_alta }
   it { should respond_to :es_ambulante }
+  it { should respond_to :total_estancias }
 
   it { should belong_to :compania }
   it { should belong_to :medico }
