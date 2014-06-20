@@ -235,6 +235,8 @@ es:
         es_ambulante: "Ambulante"
         compania: "Compañía"
         medico: "Médico"
+        estancias: "Estancias"
+        total_estancias: "Estancias"
         fecha_alta_help: "Obligatoria. Fechas entre 2000 y 2030"
         nhc_help: "Obligatorio. Número de Histora Clínica."
       medico:
@@ -244,6 +246,10 @@ es:
         especialidad: "Especialidad"
       especialidad:
         nombre: "Nombre"
+      estancia:
+        cantidad: "Cantidad"
+        episodio: "Episodio"
+        tipo_coste_con_tarifa: "Clase"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -254,6 +260,7 @@ es:
       episodio: "Episodio"
       medico: "Médico"
       especialidad: "Especialidad"
+      estancia: "Estancia"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"
