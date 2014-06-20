@@ -14,6 +14,7 @@ class Episodio < ActiveRecord::Base
   belongs_to :compania
   belongs_to :medico
   has_one :especialidad, through: :medico
+  has_many :estancias
   validates :nhc, :fecha_alta, :compania, :medico, presence: true
   validates_numericality_of :nhc, greater_than_or_equal_to: 1
   validate :fecha_alta_range, message: "Fecha mala"
