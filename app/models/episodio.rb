@@ -43,8 +43,12 @@ class Episodio < ActiveRecord::Base
       field :es_ambulante
     end
     edit do
-      field :fecha_alta
-      field :nhc
+      field :fecha_alta do
+        help I18n.t("activerecord.attributes.episodio.fecha_alta_help")
+      end
+      field :nhc do
+        help I18n.t("activerecord.attributes.episodio.nhc_help")
+      end
       field :compania
       field :medico
       field :es_ambulante
