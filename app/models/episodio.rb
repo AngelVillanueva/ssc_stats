@@ -43,7 +43,6 @@ class Episodio < ActiveRecord::Base
       field :es_ambulante
     end
     edit do
-      field :id
       field :fecha_alta
       field :nhc
       field :compania
