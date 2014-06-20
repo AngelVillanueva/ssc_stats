@@ -6,6 +6,8 @@ describe TipoCosteSinTarifa do
 
   it { should validate_presence_of :concepto }
   it { should validate_uniqueness_of :concepto }
+  it { should validate_presence_of :subtipo_coste }
+  
   describe "should validate concepto uniqueness in a non case sensitive way" do
     let( :subtipo ) { FactoryGirl.create( :subtipo_coste ) }
     let( :concepto_coste ) { FactoryGirl.create( :tipo_coste_sin_tarifa, subtipo_coste: subtipo ) }

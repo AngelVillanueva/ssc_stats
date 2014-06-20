@@ -16,7 +16,7 @@ class Episodio < ActiveRecord::Base
   has_one :especialidad, through: :medico
   validates :nhc, :fecha_alta, :compania, :medico, presence: true
   validates_numericality_of :nhc, greater_than_or_equal_to: 1
-  validate :fecha_alta_range
+  validate :fecha_alta_range, message: "Fecha mala"
 
   after_initialize do
     if new_record?
@@ -26,9 +26,9 @@ class Episodio < ActiveRecord::Base
 
   def fecha_alta_range
     if fecha_alta && fecha_alta.year < 2000
-      errors.add(:episodio, I18n.t( "errors.messages.too_old" ) )
+      errors.add(:fecha_alta, I18n.t( "errors.messages.too_old" ) )
     elsif fecha_alta && fecha_alta.year > 2030
-      errors.add(:episodio, I18n.t( "errors.messages.too_new" ) )
+      errors.add(:fecha_alta, I18n.t( "errors.messages.too_new" ) )
     end
   end
 
@@ -43,9 +43,12 @@ class Episodio < ActiveRecord::Base
       field :es_ambulante
     end
     edit do
-      field :id
-      field :fecha_alta
-      field :nhc
+      field :fecha_alta do
+        help I18n.t("activerecord.attributes.episodio.fecha_alta_help")
+      end
+      field :nhc do
+        help I18n.t("activerecord.attributes.episodio.nhc_help")
+      end
       field :compania
       field :medico
       field :es_ambulante

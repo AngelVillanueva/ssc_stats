@@ -119,8 +119,8 @@ es:
       too_long: es demasiado largo (%{count} caracteres máximo)
       too_short: es demasiado corto (%{count} caracteres mínimo)
       wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
-      too_old: es demasiado antiguo
-      too_new: es demasiado moderno
+      too_old: es demasiado antigua
+      too_new: es demasiado moderna
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
@@ -235,6 +235,8 @@ es:
         es_ambulante: "Ambulante"
         compania: "Compañía"
         medico: "Médico"
+        fecha_alta_help: "Obligatoria. Fechas entre 2000 y 2030"
+        nhc_help: "Obligatorio. Número de Histora Clínica."
       medico:
         nombre_pila: "Nombre"
         apellidos: "Apellidos"
