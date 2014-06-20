@@ -14,6 +14,7 @@ class Episodio < ActiveRecord::Base
   belongs_to :compania
   belongs_to :medico
   has_one :especialidad, through: :medico
+  has_many :estancias
   validates :nhc, :fecha_alta, :compania, :medico, presence: true
   validates_numericality_of :nhc, greater_than_or_equal_to: 1
   validate :fecha_alta_range, message: "Fecha mala"
@@ -32,6 +33,10 @@ class Episodio < ActiveRecord::Base
     end
   end
 
+  def total_estancias
+    self.estancias.map(&:cantidad).inject(0, :+)
+  end
+
   rails_admin do
     list do
       field :id
@@ -41,6 +46,7 @@ class Episodio < ActiveRecord::Base
       field :medico
       field :especialidad
       field :es_ambulante
+      field :total_estancias
     end
     edit do
       field :fecha_alta do
@@ -52,6 +58,7 @@ class Episodio < ActiveRecord::Base
       field :compania
       field :medico
       field :es_ambulante
+      field :estancias
     end
   end
 end

@@ -24,6 +24,10 @@ module ValidUserRequestHelperCustom
       action_link = find( :css, "li.#{action}_collection_link a")
       action_link.click
     end
+    def click_next_page_link
+      next_page_link = find( :css, "td.other a" )
+      next_page_link.click
+    end
 end
 
 # Configure these to modules as helpers in the appropriate tests.

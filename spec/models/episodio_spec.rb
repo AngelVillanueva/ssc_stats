@@ -16,10 +16,12 @@ describe Episodio do
   it { should respond_to :nhc }
   it { should respond_to :fecha_alta }
   it { should respond_to :es_ambulante }
+  it { should respond_to :total_estancias }
 
   it { should belong_to :compania }
   it { should belong_to :medico }
   it { should have_one :especialidad }
+  it { should have_many :estancias }
 
   it { should validate_presence_of :nhc }
   it { should validate_numericality_of(:nhc).is_greater_than_or_equal_to(1) }
