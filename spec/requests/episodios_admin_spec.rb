@@ -43,7 +43,6 @@ describe "Episodios management" do
       expect( medico ).to be_valid
       click_the_menu_link_for "episodio"
       click_the_action_link_for "new"
-      save_and_open_page
       expect( page).to have_select( "episodio_medico_id", :options => ['','Gregory House MD'])
     end
   end
