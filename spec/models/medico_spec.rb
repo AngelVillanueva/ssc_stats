@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: medicos
+#
+#  id              :integer          not null, primary key
+#  nombre_pila     :string(255)
+#  apellidos       :string(255)
+#  especialidad_id :integer
+#
+
 require 'spec_helper'
 
 describe Medico do

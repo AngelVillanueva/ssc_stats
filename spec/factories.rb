@@ -24,6 +24,7 @@ FactoryGirl.define do
   factory :estancia do
     cantidad 2
     tipo_coste_con_tarifa
+    episodio
   end
   factory :subtipo_coste do
     descripcion "Otros"

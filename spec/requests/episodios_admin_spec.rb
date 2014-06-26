@@ -5,8 +5,10 @@ describe "Episodios management" do
     let( :usuario ) { FactoryGirl.create( :usuario ) }
     let( :compania ) { FactoryGirl.create( :compania ) }
     let( :medico ) { FactoryGirl.create( :medico ) }
+    let( :subtipo ) { FactoryGirl.create( :subtipo_coste, descripcion: "Estancia" ) }
+    let( :tipo ) { FactoryGirl.create( :tipo_coste_con_tarifa, subtipo_coste: subtipo ) }
     let( :episodio ) { FactoryGirl.create( :episodio, compania: compania, medico: medico ) }
-    let( :estancia ) { FactoryGirl.create( :estancia, episodio: episodio, cantidad: 3 ) }
+    let( :estancia ) { FactoryGirl.create( :estancia, episodio: episodio, cantidad: 3, tipo_coste_con_tarifa: tipo ) }
     before { go_dashboard_and_login }
 
     it "by seeing the link" do

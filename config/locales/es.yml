@@ -121,6 +121,7 @@ es:
       wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
       too_old: es demasiado antigua
       too_new: es demasiado moderna
+      bad_tipo_coste: "tipo de coste inválido"
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
