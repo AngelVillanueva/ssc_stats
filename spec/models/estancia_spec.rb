@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: estancias
+#
+#  id                       :integer          not null, primary key
+#  cantidad                 :integer
+#  episodio_id              :integer
+#  tipo_coste_con_tarifa_id :integer
+#
+
 require 'spec_helper'
 
 describe Estancia do

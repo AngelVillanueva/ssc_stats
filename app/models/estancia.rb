@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: estancias
+#
+#  id                       :integer          not null, primary key
+#  cantidad                 :integer
+#  episodio_id              :integer
+#  tipo_coste_con_tarifa_id :integer
+#
+
 class Estancia < ActiveRecord::Base
   belongs_to :episodio
   belongs_to :tipo_coste_con_tarifa
