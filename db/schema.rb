@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627103557) do
+ActiveRecord::Schema.define(version: 20140627134151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,12 @@ ActiveRecord::Schema.define(version: 20140627103557) do
   add_index "companias", ["nombre"], name: "index_companias_on_nombre", using: :btree
 
   create_table "csv_files", force: true do |t|
-    t.string "nombre"
+    t.string   "archivo_file_name"
+    t.string   "archivo_content_type"
+    t.integer  "archivo_file_size"
+    t.datetime "archivo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "episodios", force: true do |t|
@@ -50,7 +55,10 @@ ActiveRecord::Schema.define(version: 20140627103557) do
     t.string  "nombre_pila"
     t.string  "apellidos"
     t.integer "especialidad_id"
+    t.string  "nombre_completo"
   end
+
+  add_index "medicos", ["nombre_completo"], name: "index_medicos_on_nombre_completo", using: :btree
 
   create_table "precios", force: true do |t|
     t.decimal "importe"

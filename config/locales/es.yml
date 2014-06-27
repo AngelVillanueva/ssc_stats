@@ -254,6 +254,7 @@ es:
         tipo_coste_con_tarifa_id: "Clase"
       csv_file:
         nombre: "Nombre de archivo"
+        archivo_help: "Obligatorio. Seleccione un archivo CSV para cargar."
     models:
       usuario: "Usuario"
       precio: "Precio"
