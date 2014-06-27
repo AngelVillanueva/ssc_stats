@@ -255,6 +255,8 @@ es:
       csv_file:
         nombre: "Nombre de archivo"
         archivo_help: "Obligatorio. Seleccione un archivo CSV para cargar."
+        created_at: "Fecha de creación"
+        updated_at: "Última actualización"
     models:
       usuario: "Usuario"
       precio: "Precio"
