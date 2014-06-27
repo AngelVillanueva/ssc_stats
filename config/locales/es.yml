@@ -251,6 +251,7 @@ es:
         cantidad: "Cantidad"
         episodio: "Episodio"
         tipo_coste_con_tarifa: "Clase"
+        tipo_coste_con_tarifa_id: "Clase"
     models:
       usuario: "Usuario"
       precio: "Precio"
