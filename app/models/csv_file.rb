@@ -5,6 +5,13 @@ class CsvFile < ActiveRecord::Base
     content_type: { content_type: ['text/csv','text/comma-separated-values','text/csv','application/csv','application/excel','application/vnd.ms-excel','application/vnd.msexcel','text/anytext','text/plain'] }
 
   rails_admin do
+    list do
+      configure :archivo do
+        pretty_value do
+          bindings[:object].archivo_file_name
+        end
+      end
+    end
     edit do
       field :archivo do
         help I18n.t("activerecord.attributes.csv_file.archivo_help")
