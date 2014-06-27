@@ -252,6 +252,8 @@ es:
         episodio: "Episodio"
         tipo_coste_con_tarifa: "Clase"
         tipo_coste_con_tarifa_id: "Clase"
+      csv_file:
+        nombre: "Nombre de archivo"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -263,6 +265,7 @@ es:
       medico: "Médico"
       especialidad: "Especialidad"
       estancia: "Estancia"
+      csv_file: "Fichero de importación"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"

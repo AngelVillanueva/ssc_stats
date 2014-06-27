@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620162048) do
+ActiveRecord::Schema.define(version: 20140627103557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20140620162048) do
   end
 
   add_index "companias", ["nombre"], name: "index_companias_on_nombre", using: :btree
+
+  create_table "csv_files", force: true do |t|
+    t.string "nombre"
+  end
 
   create_table "episodios", force: true do |t|
     t.integer "nhc"
