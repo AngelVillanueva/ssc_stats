@@ -44,5 +44,8 @@ FactoryGirl.define do
     compania
     tipo_coste_con_tarifa
   end
+  factory :csv_file do
+    archivo File.new( "#{Rails.root}/spec/fixtures/test.csv" )
+  end
 
 end
