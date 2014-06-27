@@ -52,14 +52,18 @@ describe "Estancias management" do
       find( :css, "button[name=_save]" ).click
       expect( Estancia.count ).to eql 2
     end
-    it "by seeing its Medico fullname when editing" do
+    it "by not accepting an invalid Tipo de Coste" do
       expect( tipo ).to be_valid
-      expect( tipo_2 ).to be_valid
-      expect( tipo_3 ).to be_valid
       expect( tipo_4 ).to be_valid
+      expect( episodio ).to be_valid
+      expect( estancia ).to be_valid
       click_the_menu_link_for "estancia"
       click_the_action_link_for "new"
-      expect( page).to have_select( "estancia_tipo_coste_con_tarifa_id", :options => ['','Estancia', 'Reanimación', 'Hospital de día'])
+      fill_in "estancia_cantidad", with: 1
+      select episodio.id, from: "estancia_episodio_id"
+      select tipo_4.concepto, from: "estancia_tipo_coste_con_tarifa_id" 
+      find( :css, "button[name=_save]" ).click
+      expect( Estancia.count ).to eql 1
     end
   end
 end
