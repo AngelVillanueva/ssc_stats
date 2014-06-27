@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: csv_files
+#
+#  id                   :integer          not null, primary key
+#  archivo_file_name    :string(255)
+#  archivo_content_type :string(255)
+#  archivo_file_size    :integer
+#  archivo_updated_at   :datetime
+#  created_at           :datetime
+#  updated_at           :datetime
+#
+
 class CsvFile < ActiveRecord::Base
   has_attached_file :archivo,
     :path => ":rails_root/uploads/:class/:id/:basename.:extension"
