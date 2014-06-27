@@ -47,6 +47,8 @@ class Episodio < ActiveRecord::Base
       field :especialidad
       field :es_ambulante
       field :total_estancias
+      field :created_at
+      field :updated_at
     end
     edit do
       field :fecha_alta do
