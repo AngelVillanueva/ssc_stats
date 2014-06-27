@@ -240,6 +240,8 @@ es:
         updated_at: "Última actualización"
       subtipo_coste:
         descripcion: "Descripción"
+        tipo_coste_con_tarifa: "Concepto de coste con tarifa"
+        tipo_coste_sin_tarifa: "Concepto de coste sin tarifa"
         created_at: "Fecha de creación"
         updated_at: "Última actualización"
       episodio:
