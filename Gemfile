@@ -25,7 +25,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 ### USERS
 gem 'devise', '~> 3.2.4' # authentication
-gem 'rails_admin'
+gem 'rails_admin', '~> 0.6.2'
+
+### OTHERS
+gem 'paperclip', '~> 4.1.1'
 
 ### TESTS
 group :development, :test do
