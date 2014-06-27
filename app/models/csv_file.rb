@@ -1,5 +1,6 @@
 class CsvFile < ActiveRecord::Base
-  has_attached_file :archivo
+  has_attached_file :archivo,
+    :path => ":rails_root/uploads/:class/:id/:basename.:extension"
   validates_attachment :archivo, content_type: { content_type: [ "text/csv" ] }
 
   rails_admin do
