@@ -6,6 +6,8 @@
 #  cantidad                 :integer
 #  episodio_id              :integer
 #  tipo_coste_con_tarifa_id :integer
+#  created_at               :datetime
+#  updated_at               :datetime
 #
 
 require 'spec_helper'

@@ -8,6 +8,8 @@
 #  es_ambulante :boolean
 #  compania_id  :integer
 #  medico_id    :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class Episodio < ActiveRecord::Base

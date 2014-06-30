@@ -8,6 +8,8 @@
 #  incluido_en_forfait      :boolean
 #  compania_id              :integer
 #  tipo_coste_con_tarifa_id :integer
+#  created_at               :datetime
+#  updated_at               :datetime
 #
 
 class Precio < ActiveRecord::Base

@@ -6,7 +6,8 @@
 #  nombre_pila     :string(255)
 #  apellidos       :string(255)
 #  especialidad_id :integer
-#  nombre_completo :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
 #
 
 require 'spec_helper'
