@@ -38,4 +38,5 @@ end
 RSpec.configure do |config|
     # Include the help for the request specs.
     config.include ValidUserRequestHelperCustom, :type => :request
+    config.include ValidUserRequestHelperCustom, :type => :feature
 end
