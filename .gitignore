@@ -31,4 +31,5 @@ doc/
 .idea
 .secret
 
+config/database.yml
 /uploads
