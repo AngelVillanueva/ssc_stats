@@ -22,6 +22,7 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             if request.post?
+              # create temporary CsvFile containing the data to be imported
               parametros = params[rails_admin.import_path.to_sym]
               modelo = parametros[:modelo]
               archivo = parametros[:archivo]
@@ -29,6 +30,15 @@ module RailsAdmin
               c.archivo = archivo
               c.modelo = modelo
               c.save!
+              # read data from imported file
+              contador = 0
+              CSV.foreach(c.archivo.path, headers: true) do |row|
+                if modelo.constantize.create! row.to_hash
+                  contador = contador + 1
+                end
+              end
+              flash[:success] = "#{contador} creados"
+              redirect_to back_or_index
             end
           end
         end

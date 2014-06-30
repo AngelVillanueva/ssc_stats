@@ -19,4 +19,22 @@ describe "Import as an option for certains models" do
     attach_file "_admin_compania_import_archivo", "#{Rails.root}/spec/fixtures/test.csv"
     expect{ click_commit_button }.to change{ CsvFile.count }.by(1)
   end
+  it "creates two Compania records if the file contains those data" do
+    a_file = create_csv_file_for 2, Compania
+    click_the_menu_link_for "compania"
+    click_the_action_link_for "import"
+    attach_file "_admin_compania_import_archivo", a_file
+    expect{ click_commit_button }.to change{ Compania.count }.by(2)
+    expect( page ).to have_css( ".alert-success", text: "2 creados" )
+  end
+end
+
+def create_csv_file_for records, model
+  the_file = "#{Rails.root}/spec/fixtures/test.csv"
+  File.open(the_file, 'w') do |file| 
+    file.puts "\"nombre\""
+    file.puts "\"Adeslas\""
+    file.puts "\"Asisa\""
+  end
+  the_file
 end
