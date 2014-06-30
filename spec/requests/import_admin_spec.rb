@@ -43,6 +43,19 @@ describe "Import functionality for Admin" do
   end
 end
 
+describe "Expand Imported functionality for Admin" do
+  let( :usuario ) { FactoryGirl.create( :usuario ) }
+  before { go_dashboard_and_login }
+
+  it "expands a file into valid new Compañía records" do
+    click_the_menu_link_for "csv_file"
+    click_the_action_link_for "new"
+    #attach_import_file_for "compania"
+    #expect( Compania.count ).to eql 2 # number of good Compañías in test csv file
+    expect{ attach_import_file_for("compania") }.to change{ Compania.count }.by(2)
+  end
+end
+
 def attach_import_file_for modelo, format="csv"
   select I18n.t("activerecord.models.#{modelo}"), from: "csv_file_modelo"
   attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.#{format}"
