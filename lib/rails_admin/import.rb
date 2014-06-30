@@ -21,6 +21,15 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
+            if request.post?
+              parametros = params[rails_admin.import_path.to_sym]
+              modelo = parametros[:modelo]
+              archivo = parametros[:archivo]
+              c = CsvFile.new
+              c.archivo = archivo
+              c.modelo = modelo
+              c.save!
+            end
           end
         end
       end
