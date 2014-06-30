@@ -28,6 +28,10 @@ module ValidUserRequestHelperCustom
       next_page_link = find( :css, "td.other a" )
       next_page_link.click
     end
+    def click_commit_button
+      submit_button = find( :css, 'input[name="commit"]' )
+      submit_button.click
+    end
     def click_save_button
       save_button = find( :css, 'button[name="_save"]' )
       save_button.click
