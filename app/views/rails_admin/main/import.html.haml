@@ -1,0 +1,6 @@
+= form_for rails_admin.import_path(@abstract_model.to_param), :multipart => true do |f|
+  = f.label :modelo
+  = f.text_field :modelo, value: @abstract_model
+  = f.label :archivo
+  = f.file_field :archivo, class: 'archivo'
+  = f.submit t("admin.form.save"), class: 'btn btn-large btn-primary'
