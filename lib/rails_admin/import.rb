@@ -16,13 +16,11 @@ module RailsAdmin
         register_instance_option :link_icon do
           'icon-upload'
         end
-        register_instance_option :bulkable? do
-          false
+        register_instance_option :http_methods do
+          [:get, :post]
         end
         register_instance_option :controller do
           Proc.new do
-            # selected ids in params[:bulk_ids]
-            # class in params[:model_name]
           end
         end
       end
