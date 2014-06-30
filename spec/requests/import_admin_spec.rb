@@ -18,7 +18,7 @@ describe "Import functionality for Admin" do
     it "by selecting the Model to be updated with" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      select "Medicos", from: "csv_file_modelo"
+      select I18n.t("activerecord.models.medico"), from: "csv_file_modelo"
       attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
       click_save_button
       expect( CsvFile.count ).to eql 1
