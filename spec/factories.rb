@@ -46,6 +46,7 @@ FactoryGirl.define do
   end
   factory :csv_file do
     archivo File.new( "#{Rails.root}/spec/fixtures/test.csv" )
+    modelo I18n.t("activerecord.models.compania")
   end
 
 end

@@ -11,6 +11,7 @@ describe "Import functionality for Admin" do
     it "by uploading a csv file" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
+      select I18n.t("activerecord.models.compania"), from: "csv_file_modelo"
       attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
       click_save_button
       expect( CsvFile.count ).to eql 1
@@ -26,6 +27,7 @@ describe "Import functionality for Admin" do
     it "that will reside in the uploads folder" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
+      select I18n.t("activerecord.models.especialidad"), from: "csv_file_modelo"
       attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
       click_save_button
       uploaded_file = "#{Rails.root}/uploads/csv_files/#{CsvFile.first.id}/test.csv"
@@ -34,6 +36,7 @@ describe "Import functionality for Admin" do
     it "do not accept other file formats" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
+      select I18n.t("activerecord.models.medico"), from: "csv_file_modelo"
       attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.jpg"
       click_save_button
       expect( CsvFile.count ).to eql 0
@@ -41,6 +44,7 @@ describe "Import functionality for Admin" do
     it "by seeing its related Archivo filename" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
+      select I18n.t("activerecord.models.compania"), from: "csv_file_modelo"
       attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
       click_save_button
       click_the_menu_link_for "csv_file"
