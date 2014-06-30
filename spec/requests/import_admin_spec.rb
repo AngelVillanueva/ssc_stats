@@ -11,14 +11,12 @@ describe "Import functionality for Admin" do
     it "by uploading a csv file" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_import_file_for "compania"
-      expect( CsvFile.count ).to eql 1
+      expect{ attach_import_file_for("compania") }.to change{ CsvFile.count }.by(1)
     end
     it "by selecting the Model to be updated with" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_import_file_for "medico"
-      expect( CsvFile.count ).to eql 1
+      expect{ attach_import_file_for("medico") }.to change{ CsvFile.count }.by(1)
     end
     it "that will reside in the uploads folder" do
       click_the_menu_link_for "csv_file"
@@ -31,7 +29,7 @@ describe "Import functionality for Admin" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
       attach_import_file_for "medico", "jpg"
-      expect( CsvFile.count ).to eql 0
+      expect{ attach_import_file_for("medico", "jpg") }.to change{ CsvFile.count }.by(0)
     end
     it "by seeing its related Archivo filename" do
       click_the_menu_link_for "csv_file"
@@ -50,8 +48,6 @@ describe "Expand Imported functionality for Admin" do
   it "expands a file into valid new Compañía records" do
     click_the_menu_link_for "csv_file"
     click_the_action_link_for "new"
-    #attach_import_file_for "compania"
-    #expect( Compania.count ).to eql 2 # number of good Compañías in test csv file
     expect{ attach_import_file_for("compania") }.to change{ Compania.count }.by(2)
   end
 end
