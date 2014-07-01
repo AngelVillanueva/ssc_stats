@@ -27,13 +27,8 @@ module RailsAdmin
               csv_file = CsvFile.new
               csv_file.archivo = archivo
               csv_file.save!
-              # read data from imported file
-              contador = 0
-              CSV.foreach(csv_file.archivo.path, headers: true) do |row|
-                if @model_name.constantize.create! row.to_hash
-                  contador = contador + 1
-                end
-              end
+              # create records from file and return the number of created records
+              contador = @abstract_model.model.create_from_import( csv_file.archivo.path )
               flash[:success] = I18n.t( "exitos.messages.created_records", records: contador )
               redirect_to back_or_index
             end
