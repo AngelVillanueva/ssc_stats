@@ -122,6 +122,7 @@ es:
       too_old: es demasiado antigua
       too_new: es demasiado moderna
       bad_tipo_coste: "tipo de coste inválido"
+      undefined_csv_headers: "No se han definido los encabezados. Es probable que la importación no funcione para este modelo."
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
@@ -276,7 +277,8 @@ es:
         updated_at: "Última actualización"
       csv_file:
         nombre: "Nombre de archivo"
-        archivo_help: "Obligatorio. Seleccione un archivo CSV para cargar."
+        archivo_help: "Obligatorio. Seleccione un archivo CSV para cargar. Desde Excel puede generarlo utilizando 'Guardar como'."
+        archivo_help_2: "La primera fila debe contener los encabezados de columna con los siguientes nombres exactos:"
         created_at: "Fecha de creación"
         updated_at: "Última actualización"
     models:

@@ -17,14 +17,14 @@ describe "Import as an option for certains models" do
     click_the_menu_link_for "compania"
     click_the_action_link_for "import"
     attach_file "_admin_compania_import_archivo", "#{Rails.root}/spec/fixtures/test.csv"
-    expect{ click_commit_button }.to change{ CsvFile.count }.by(1)
+    expect{ click_save_button }.to change{ CsvFile.count }.by(1)
   end
   it "creates two Compania records if the file contains those data" do
     a_file = create_csv_file_for 2, Compania
     click_the_menu_link_for "compania"
     click_the_action_link_for "import"
     attach_file "_admin_compania_import_archivo", a_file
-    expect{ click_commit_button }.to change{ Compania.count }.by(2)
+    expect{ click_save_button }.to change{ Compania.count }.by(2)
     expect( page ).to have_css( ".alert-success", text: "2 creados" )
   end
 end
