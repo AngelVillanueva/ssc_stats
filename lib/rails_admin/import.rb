@@ -23,17 +23,14 @@ module RailsAdmin
           Proc.new do
             if request.post?
               # create temporary CsvFile containing the data to be imported
-              parametros = params[rails_admin.import_path.to_sym]
-              modelo = parametros[:modelo]
-              archivo = parametros[:archivo]
-              c = CsvFile.new
-              c.archivo = archivo
-              c.modelo = modelo
-              c.save!
+              archivo = params[rails_admin.import_path.to_sym][:archivo]
+              csv_file = CsvFile.new
+              csv_file.archivo = archivo
+              csv_file.save!
               # read data from imported file
               contador = 0
-              CSV.foreach(c.archivo.path, headers: true) do |row|
-                if modelo.constantize.create! row.to_hash
+              CSV.foreach(csv_file.archivo.path, headers: true) do |row|
+                if @model_name.constantize.create! row.to_hash
                   contador = contador + 1
                 end
               end

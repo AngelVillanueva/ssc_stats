@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630101401) do
+ActiveRecord::Schema.define(version: 20140701075412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20140630101401) do
     t.datetime "archivo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "modelo"
   end
 
   create_table "episodios", force: true do |t|

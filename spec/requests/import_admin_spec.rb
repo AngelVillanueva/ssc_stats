@@ -42,7 +42,6 @@ describe "Import functionality for Admin" do
 end
 
 def attach_import_file_for modelo, format="csv"
-  select I18n.t("activerecord.models.#{modelo}"), from: "csv_file_modelo"
   attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.#{format}"
   click_save_button
 end
