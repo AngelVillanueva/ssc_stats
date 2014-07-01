@@ -9,7 +9,6 @@
 #  archivo_updated_at   :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
-#  modelo               :string(255)
 #
 
 require 'spec_helper'
