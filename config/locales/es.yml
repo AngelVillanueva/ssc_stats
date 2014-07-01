@@ -293,6 +293,9 @@ es:
       especialidad: "Especialidad"
       estancia: "Estancia"
       csv_file: "Fichero de importación"
+  exitos:
+    messages:
+      created_records: "%{records} nuevos registros creados"
   Home: "Inicio"
   Page_title: "Clínica Santa Cristina | %{pipe}"
   Site_description: "Clínica Santa Cristina - Estadísticas"

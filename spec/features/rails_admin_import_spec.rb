@@ -25,7 +25,7 @@ describe "Import as an option for certains models" do
     click_the_action_link_for "import"
     attach_file "_admin_compania_import_archivo", a_file
     expect{ click_save_button }.to change{ Compania.count }.by(2)
-    expect( page ).to have_css( ".alert-success", text: "2 creados" )
+    expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 2) )
   end
 end
 

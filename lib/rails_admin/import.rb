@@ -34,7 +34,7 @@ module RailsAdmin
                   contador = contador + 1
                 end
               end
-              flash[:success] = "#{contador} creados"
+              flash[:success] = I18n.t( "exitos.messages.created_records", records: contador )
               redirect_to back_or_index
             end
           end
