@@ -11,15 +11,19 @@ module Shared::Import
       fallados = 0
       # iterate through CSV file rows trying to create new records
       CSV.foreach( file_path, headers: true ) do |row|
-        object = self.new row.to_hash
-        if object.valid?
-          object.save!
-          creados = creados + 1
-        else
-          object.errors.messages.each do |k,v|
-            resultado[:errors] << "#{k.to_s.titleize}: #{v.join(',')}"
+        begin
+          object = self.new row.to_hash
+          if object.valid?
+            object.save!
+            creados = creados + 1
+          else
+            object.errors.messages.each do |k,v|
+              resultado[:errors] << "#{k.to_s.titleize}: #{v.join(',')}"
+            end
+            fallados += 1
           end
-          fallados += 1
+        rescue Exception => e
+          resultado[:errors] << e
         end
       end
       # response including errors if any
