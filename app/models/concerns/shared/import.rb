@@ -22,7 +22,7 @@ module Shared::Import
             end
             fallados += 1
           end
-        rescue Exception => e
+        rescue StandardError => e
           resultado[:errors] << e
         end
       end

@@ -21,18 +21,14 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
+            # if a file is uploaded try to create a temp CsvFile from it
             if request.post?
-              # create temporary CsvFile containing the data to be imported
-                #archivo = params[rails_admin.import_path.to_sym][:archivo]
-                # csv_file = CsvFile.new
-                # csv_file.archivo = archivo
-                # csv_file.save!
               begin
                 csv_file = CsvFile.create! archivo: params[rails_admin.import_path.to_sym][:archivo]
-              rescue Exception => e
+              rescue StandardError => e
                 flash[:error] = e
               end
-              # create records from file and return the number of created records
+              # create records from valid file and return the number of created records
               if csv_file
                 importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
                 flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
