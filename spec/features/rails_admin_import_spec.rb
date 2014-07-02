@@ -8,6 +8,10 @@ describe "Import as an option for certains models" do
     click_the_menu_link_for "compania"
     expect( page ).to have_css( "li.import_collection_link" )
   end
+  it "available for Especialidades" do
+    click_the_menu_link_for "especialidad"
+    expect( page ).to have_css( "li.import_collection_link" )
+  end
   it "asks for a CSV file to import" do
     click_the_menu_link_for "compania"
     click_the_action_link_for "import"
@@ -26,6 +30,14 @@ describe "Import as an option for certains models" do
     click_the_action_link_for "import"
     attach_file "_admin_compania_import_archivo", a_file
     expect{ click_save_button }.to change{ Compania.count }.by(2)
+    expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 2) )
+  end
+  it "creates two Especialidad records if the file contains those data" do
+    a_file = create_csv_file_for 2, Especialidad
+    click_the_menu_link_for "especialidad"
+    click_the_action_link_for "import"
+    attach_file "_admin_especialidad_import_archivo", a_file
+    expect{ click_save_button }.to change{ Especialidad.count }.by(2)
     expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 2) )
   end
   it "should advise when not all the rows created a new record" do
@@ -53,6 +65,8 @@ def file_content_for model, repeated = false
   case model
     when "Compania" then
       line_items = repeated ? %w( "nombre" "Adeslas" "Adeslas" ) : %w( "nombre" "Adeslas" "Asisa" )
+    when "Especialidad" then
+      line_items = repeated ? %w( "nombre" "Diagnosis" "Diagnosis" ) : %w( "nombre" "Diagnosis" "Alergia" )
     else line_items = []
   end
   line_items
