@@ -30,6 +30,7 @@ module RailsAdmin
               end
               # create records from valid file and return the number of created records
               if csv_file
+                # try to create records via the Class method create_from_import (shared concern)
                 importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
                 flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
                 unless importacion[:errors].empty?
