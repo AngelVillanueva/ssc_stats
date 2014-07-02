@@ -123,6 +123,7 @@ es:
       too_new: es demasiado moderna
       bad_tipo_coste: "tipo de coste inválido"
       undefined_csv_headers: "No se han definido los encabezados. Es probable que la importación no funcione para este modelo."
+      created_records: "No fue posible crear %{records} registros, por las siguientes razones:"
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:

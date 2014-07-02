@@ -15,13 +15,24 @@ class Compania < ActiveRecord::Base
   validates_uniqueness_of :nombre, case_sensitive: false
 
   def self.create_from_import file_path
-    contador = 0
+    resultado = {:creados => 0, :fallados => 0, :errors => []}
+    creados = 0
+    fallados = 0
     CSV.foreach( file_path, headers: true ) do |row|
-      if self.create! row.to_hash
-        contador = contador + 1
+      object = self.new row.to_hash
+      if object.valid?
+        object.save!
+        creados = creados + 1
+      else
+        object.errors.messages.each do |k,v|
+          resultado[:errors] << "#{k.to_s.titleize}: #{v.join(',')}"
+        end
+        fallados += 1
       end
     end
-    contador
+    resultado[:creados] = creados
+    resultado[:fallados] = fallados
+    resultado
   end
 
   rails_admin do

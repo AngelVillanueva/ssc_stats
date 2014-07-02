@@ -28,8 +28,12 @@ module RailsAdmin
               csv_file.archivo = archivo
               csv_file.save!
               # create records from file and return the number of created records
-              contador = @abstract_model.model.create_from_import( csv_file.archivo.path )
-              flash[:success] = I18n.t( "exitos.messages.created_records", records: contador )
+              importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
+              flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
+              unless importacion[:errors].empty?
+                flash[:error] = I18n.t( "errors.messages.created_records", records: importacion[:fallados] ) unless importacion[:errors].empty?
+                flash[:notice] = importacion[:errors].join(" -- ")
+              end
               redirect_to back_or_index
             end
           end
