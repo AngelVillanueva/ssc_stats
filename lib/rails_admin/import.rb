@@ -31,17 +31,18 @@ module RailsAdmin
               # create records from valid file and return the number of created records
               if csv_file
                 # try to create records via the Class method create_from_import (shared concern)
-                importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
-                flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
-                unless importacion[:errors].empty?
-                  if importacion[:fallados] > 0
-                    error_message = I18n.t( "errors.messages.created_records", records: importacion[:fallados] )
-                  else
-                    error_message = I18n.t( "errors.messages.no_created_records" )
-                  end
-                  flash[:error] = error_message
-                  flash[:notice] = importacion[:errors].join(" -- ")
-                end
+                resultado_importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
+                set_flash_messages resultado_importacion
+                # flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
+                # unless importacion[:errors].empty?
+                #   if importacion[:fallados] > 0
+                #     error_message = I18n.t( "errors.messages.created_records", records: importacion[:fallados] )
+                #   else
+                #     error_message = I18n.t( "errors.messages.no_created_records" )
+                #   end
+                #   flash[:error] = error_message
+                #   flash[:notice] = importacion[:errors].join(" -- ")
+                # end
               end
               redirect_to back_or_index
             end
@@ -50,4 +51,17 @@ module RailsAdmin
       end
     end
   end
+end
+
+def set_flash_messages results_matrix
+  flash[:success] = I18n.t( "exitos.messages.created_records", records: results_matrix[:creados] )
+    unless results_matrix[:errors].empty?
+      if results_matrix[:fallados] > 0
+        error_message = I18n.t( "errors.messages.created_records", records: results_matrix[:fallados] )
+      else
+        error_message = I18n.t( "errors.messages.no_created_records" )
+      end
+      flash[:error] = error_message
+      flash[:notice] = results_matrix[:errors].join(" -- ")
+    end
 end
