@@ -9,6 +9,7 @@
 #
 
 class SubtipoCoste < ActiveRecord::Base
+  include Shared::Import
   has_many :tipo_coste_con_tarifas
   has_many :tipo_coste_sin_tarifas
   validates :descripcion, presence: true
