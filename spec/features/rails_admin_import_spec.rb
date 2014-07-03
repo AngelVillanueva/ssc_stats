@@ -45,22 +45,31 @@ describe "Import as an option for certains models" do
   end
   it "should advise when the row headers do not match the model attributes" do
     upload_a_file_for 2, Compania, "wrong_headers"
-    click_save_button
-    save_and_open_page 
+    expect{ click_save_button }.to change{ Compania.count }.by(0)
     expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
     expect( page ).to have_css( ".alert-error", text: I18n.t("errors.messages.no_created_records" ) )
     expect( page ).to have_css( ".alert-notice", text: I18n.t("errors.messages.bad_row_headers" ) )
   end
-  # it "should ignore the headers when not match the model attributes" do
-  #   upload_a_file_for 2, Compania, "1_wrong_header"
-  #   expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
-  # end
+  it "should ignore the file content when rows do not match all the model attributes" do
+    upload_a_mixed_file_for Compania
+    expect{ click_save_button }.to change{ Compania.count }.by(0)
+    expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
+    expect( page ).to have_css( ".alert-error", text: I18n.t("errors.messages.no_created_records" ) )
+    expect( page ).to have_css( ".alert-notice", text: I18n.t("errors.messages.bad_row_headers" ) )
+  end
 end
 
 ### AUX METHODS
 
 def upload_a_bad_file_for model
   a_file = "#{Rails.root}/spec/fixtures/test.jpg"
+  click_the_menu_link_for model.to_s.downcase
+  click_the_action_link_for "import"
+  attach_file "_admin_#{model.to_s.downcase}_import_archivo", a_file
+end
+
+def upload_a_mixed_file_for model
+  a_file = "#{Rails.root}/spec/fixtures/test_mixed.csv"
   click_the_menu_link_for model.to_s.downcase
   click_the_action_link_for "import"
   attach_file "_admin_#{model.to_s.downcase}_import_archivo", a_file
