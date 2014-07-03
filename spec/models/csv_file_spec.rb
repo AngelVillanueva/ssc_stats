@@ -14,7 +14,9 @@
 require 'spec_helper'
 
 describe CsvFile do
+  it { should_not respond_to :modelo }
   it { should respond_to :archivo }
+
   describe "with mandatory Archivo file" do
     let( :file ) { FactoryGirl.create( :csv_file ) }
     before { file.archivo = nil }

@@ -92,6 +92,13 @@ es:
         title: "Historial para %{model_label} '%{object_label}'"
         menu: "Historial"
         breadcrumb: "Historial"
+      import:
+        title: "Importar %{model_label}"
+        menu: "Importar"
+        breadcrumb: "Importar"
+        link: "Importar %{model_label_plural} encontrados"
+        bulk_link: "Importar %{model_label_plural} seleccionados"
+        done: "importados"
     form:
       cancel: "Cancelar"
       basic_info: "Información básica"

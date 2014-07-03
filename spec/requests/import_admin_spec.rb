@@ -11,32 +11,37 @@ describe "Import functionality for Admin" do
     it "by uploading a csv file" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
-      click_save_button
-      expect( CsvFile.count ).to eql 1
+      expect{ attach_import_file_for("compania") }.to change{ CsvFile.count }.by(1)
+    end
+    it "by selecting the Model to be updated with" do
+      click_the_menu_link_for "csv_file"
+      click_the_action_link_for "new"
+      expect{ attach_import_file_for("medico") }.to change{ CsvFile.count }.by(1)
     end
     it "that will reside in the uploads folder" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
-      click_save_button
+      attach_import_file_for "especialidad"
       uploaded_file = "#{Rails.root}/uploads/csv_files/#{CsvFile.first.id}/test.csv"
       expect( File.exists? uploaded_file ).to eql true
     end
     it "do not accept other file formats" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.jpg"
-      click_save_button
-      expect( CsvFile.count ).to eql 0
+      attach_import_file_for "medico", "jpg"
+      expect{ attach_import_file_for("medico", "jpg") }.to change{ CsvFile.count }.by(0)
     end
     it "by seeing its related Archivo filename" do
       click_the_menu_link_for "csv_file"
       click_the_action_link_for "new"
-      attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.csv"
-      click_save_button
+      attach_import_file_for "compania"
       click_the_menu_link_for "csv_file"
       expect( page ).to have_css( "td.archivo_field", text: /\Atest.csv\z/ )
     end
   end
+end
+
+def attach_import_file_for modelo, format="csv"
+  attach_file "csv_file_archivo", "#{Rails.root}/spec/fixtures/test.#{format}"
+  click_save_button
 end

@@ -1,0 +1,16 @@
+= form_for rails_admin.import_path(@abstract_model.to_param), html: { class: 'form-horizontal denser' }, :multipart => true do |f|
+  %fieldset
+    = f.label :archivo, class: 'control-label'
+    .controls
+      = f.file_field :archivo, class: 'archivo'
+      %p.help-block
+        = t("activerecord.attributes.csv_file.archivo_help")
+      %p.help-block
+        = t("activerecord.attributes.csv_file.archivo_help_2")
+      %p
+      %p.help-block
+        = csv_headers_for @abstract_model.to_param.classify
+  .form-actions
+    = f.button class: "btn btn-primary", name: "_save" do
+      %i.icon-white.icon-ok
+      = t("admin.form.save")

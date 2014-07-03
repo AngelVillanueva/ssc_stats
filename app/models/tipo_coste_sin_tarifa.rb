@@ -5,6 +5,8 @@
 #  id               :integer          not null, primary key
 #  concepto         :string(255)
 #  subtipo_coste_id :integer
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 class TipoCosteSinTarifa < ActiveRecord::Base
