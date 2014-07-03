@@ -46,9 +46,10 @@ describe "Import as an option for certains models" do
   it "should advise when the row headers do not match the model attributes" do
     upload_a_file_for 2, Compania, "wrong_headers"
     click_save_button
+    save_and_open_page 
     expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
     expect( page ).to have_css( ".alert-error", text: I18n.t("errors.messages.no_created_records" ) )
-    expect( page ).to have_css( ".alert-notice", text: "unknown attribute" )
+    expect( page ).to have_css( ".alert-notice", text: I18n.t("errors.messages.bad_row_headers" ) )
   end
   # it "should ignore the headers when not match the model attributes" do
   #   upload_a_file_for 2, Compania, "1_wrong_header"

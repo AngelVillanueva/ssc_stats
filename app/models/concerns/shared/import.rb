@@ -22,14 +22,24 @@ module Shared::Import
             end
             fallados += 1
           end
-        rescue StandardError => e
-          resultado[:errors] << e
+        rescue StandardError => e 
+          resultado[:errors] << refined_error_message( e )
         end
       end
       # response including errors if any
       resultado[:creados] = creados
       resultado[:fallados] = fallados
       resultado
+    end
+
+    protected
+    def refined_error_message e
+      if e.class == ActiveRecord::UnknownAttributeError
+        error_message = I18n.t( "errors.messages.bad_row_headers" )
+      else
+        error_message = e.class
+      end
+      error_message
     end
   end
 

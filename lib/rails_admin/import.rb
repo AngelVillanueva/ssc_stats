@@ -33,16 +33,6 @@ module RailsAdmin
                 # try to create records via the Class method create_from_import (shared concern)
                 resultado_importacion = @abstract_model.model.create_from_import( csv_file.archivo.path )
                 set_flash_messages resultado_importacion
-                # flash[:success] = I18n.t( "exitos.messages.created_records", records: importacion[:creados] )
-                # unless importacion[:errors].empty?
-                #   if importacion[:fallados] > 0
-                #     error_message = I18n.t( "errors.messages.created_records", records: importacion[:fallados] )
-                #   else
-                #     error_message = I18n.t( "errors.messages.no_created_records" )
-                #   end
-                #   flash[:error] = error_message
-                #   flash[:notice] = importacion[:errors].join(" -- ")
-                # end
               end
               redirect_to back_or_index
             end
