@@ -35,7 +35,12 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-    import
+    import do
+      visible do
+        # Make it visible only for selected models.
+        bindings[:abstract_model].model.to_s.in? %w[ Compania Especialidad SubtipoCoste ]
+      end
+    end
 
     ## With an audit adapter, you can add:
     # history_index

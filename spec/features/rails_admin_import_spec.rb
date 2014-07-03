@@ -3,12 +3,19 @@ require 'spec_helper'
 describe "Import as an option for certains models" do
   let( :usuario ) { FactoryGirl.create( :usuario ) }
   let( :models ) { [ SubtipoCoste, Compania, Especialidad ] }
+  let( :excluded_models ) { [ Usuario, CsvFile, Episodio, Estancia, Medico, Precio, TipoCosteConTarifa, TipoCosteSinTarifa ] }
   before { go_dashboard_and_login }
 
   it "available for certain models" do
     models.each do |model|
       click_the_menu_link_for model.to_s.underscore
       expect( page ).to have_css( "li.import_collection_link" )
+    end
+  end
+  it "not available for other models" do
+    excluded_models.each do |model|
+      click_the_menu_link_for model.to_s.underscore
+      expect( page ).to_not have_css( "li.import_collection_link" )
     end
   end
   it "asks for a CSV file to import" do
