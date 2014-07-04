@@ -285,6 +285,15 @@ es:
         archivo_help_2: "La primera fila debe contener los encabezados de columna con los siguientes nombres exactos:"
         created_at: "Fecha de creación"
         updated_at: "Última actualización"
+      diagnostico:
+        tipo_coste_con_tarifa_id: "Derechos"
+        codigo_omc: "Código OMC"
+        created_at: "Fecha de creación"
+        updated_at: "Última actualización"
+      codigo_omc:
+        descripcion: "Descripción"
+        created_at: "Fecha de creación"
+        updated_at: "Última actualización"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -297,6 +306,8 @@ es:
       especialidad: "Especialidad"
       estancia: "Estancia"
       csv_file: "Fichero de importación"
+      diagnostico: "Diagnóstico"
+      codigo_omc: "Código OMC"
   exitos:
     messages:
       created_records: "%{records} nuevos registros creados"

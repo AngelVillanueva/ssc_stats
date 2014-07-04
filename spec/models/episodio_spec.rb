@@ -24,6 +24,7 @@ describe Episodio do
   it { should belong_to :medico }
   it { should have_one :especialidad }
   it { should have_many :estancias }
+  it { should have_many :diagnosticos }
 
   it { should validate_presence_of :nhc }
   it { should validate_numericality_of(:nhc).is_greater_than_or_equal_to(1) }

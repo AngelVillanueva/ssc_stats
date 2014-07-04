@@ -47,5 +47,12 @@ FactoryGirl.define do
   factory :csv_file do
     archivo File.new( "#{Rails.root}/spec/fixtures/test.csv" )
   end
-
+  factory :diagnostico do
+    episodio
+    tipo_coste_con_tarifa
+    codigo_omc
+  end
+  factory :codigo_omc do
+    descripcion "Laparoscopia"
+  end
 end

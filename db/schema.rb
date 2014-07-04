@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701075412) do
+ActiveRecord::Schema.define(version: 20140704113128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "codigos_omc", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "descripcion"
+  end
 
   create_table "companias", force: true do |t|
     t.string   "nombre"
@@ -30,6 +36,18 @@ ActiveRecord::Schema.define(version: 20140701075412) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "diagnosticos", force: true do |t|
+    t.integer  "episodio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tipo_coste_con_tarifa_id"
+    t.integer  "codigo_omc_id"
+  end
+
+  add_index "diagnosticos", ["codigo_omc_id"], name: "index_diagnosticos_on_codigo_omc_id", using: :btree
+  add_index "diagnosticos", ["episodio_id"], name: "index_diagnosticos_on_episodio_id", using: :btree
+  add_index "diagnosticos", ["tipo_coste_con_tarifa_id"], name: "index_diagnosticos_on_tipo_coste_con_tarifa_id", using: :btree
 
   create_table "episodios", force: true do |t|
     t.integer  "nhc"
