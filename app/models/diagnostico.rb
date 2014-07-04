@@ -11,4 +11,6 @@
 class Diagnostico < ActiveRecord::Base
   belongs_to :episodio
   belongs_to :tipo_coste_con_tarifa
+
+  validates_with TipoValidator, nombres: %w( Diagnóstico Quirófano Quirofano ) # check that the TipoCoste fits the Subtipo
 end
