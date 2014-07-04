@@ -51,4 +51,7 @@ FactoryGirl.define do
     episodio
     tipo_coste_con_tarifa
   end
+  factory :codigo_omc do
+    descripcion "Laparoscopia"
+  end
 end
