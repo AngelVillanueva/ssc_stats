@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     import do
       visible do
         # Make it visible only for selected models.
-        bindings[:abstract_model].model.to_s.in? %w[ Compania Especialidad SubtipoCoste ]
+        bindings[:abstract_model].model.to_s.in? %w[ Compania Especialidad SubtipoCoste Usuario ]
       end
     end
 

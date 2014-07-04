@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Import as an option for certains models" do
   let( :usuario ) { FactoryGirl.create( :usuario ) }
-  let( :models ) { [ SubtipoCoste, Compania, Especialidad ] }
-  let( :excluded_models ) { [ Usuario, CsvFile, Episodio, Estancia, Medico, Precio, TipoCosteConTarifa, TipoCosteSinTarifa ] }
+  let( :models ) { [ SubtipoCoste, Compania, Especialidad, Usuario ] }
+  let( :excluded_models ) { [ CsvFile, Episodio, Estancia, Medico, Precio, TipoCosteConTarifa, TipoCosteSinTarifa ] }
   before { go_dashboard_and_login }
 
   it "available for certain models" do
@@ -33,9 +33,10 @@ describe "Import as an option for certains models" do
   end
   it "should advise when the CsvFile format is wrong" do
     models.each do |model|
+      model == Usuario ? current_model_count = 1 : current_model_count = 0
       upload_a_bad_file_for model
       expect{ click_save_button }.to_not change{ CsvFile.count }
-      expect( model.count ).to eql 0
+      expect( model.count ).to eql current_model_count
       expect( page ).to have_css( ".alert-error", text: I18n.t( "errors.messages.invalid" ) )
     end
   end
@@ -126,6 +127,12 @@ def file_content_for model, type = "normal"
         when "repetido" then rows = [ %w( nombre ), %w( Alergia ), %w( Alergia ) ]
         when "wrong_headers" then rows = [ %w( concepto ), %w( Diagnosis ), %w( Alergia ) ]
         else rows = [ %w( nombre ), %w( Diagnosis ), %w( Alergia ) ]
+      end
+    when "Usuario"
+      case type
+      when "repetido" then rows = [ %w( email password password_confirmation ), %w( test@example.com foobarfoo foobarfoo ), %w( test@example.com foobarfoo foobarfoo ) ]
+      when "wrong_headers" then rows = [ %w( email password password_confirmations ), %w( test@example.com foobarfoo foobarfoo ), %w( sample@example.net foobarfoo foobarfoo ) ]
+      else rows = [ %w( email password password_confirmation ), %w( test@example.com foobarfoo foobarfoo ), %w( sample@example.net foobarfoo foobarfoo ) ]
       end
     else rows = [[]]
   end
