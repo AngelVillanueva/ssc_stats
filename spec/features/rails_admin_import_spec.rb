@@ -99,9 +99,9 @@ end
 
 def create_csv_file_for records, model, type = "normal"
   the_file = "#{Rails.root}/spec/fixtures/test.csv"
-  File.open(the_file, 'w') do |file| 
-    file_content_for(model.to_s, type).each do |line_item|
-      file.puts line_item
+  CSV.open(the_file, 'wb') do |csv| 
+    file_content_for(model.to_s, type).each do |row|
+      csv << row
     end
   end
   the_file
@@ -111,23 +111,23 @@ def file_content_for model, type = "normal"
   case model
     when "SubtipoCoste"
       case type
-        when "repetido" then line_items = %w( "descripcion" "Estancia" "Estancia" )
-        when "wrong_headers" then line_items = %w( "nombre" "Estancia" "Quirófano" )
-        else line_items = %w( "descripcion" "Estancia" "Quirófano" )
+        when "repetido" then rows = [ %w( descripcion ), %w( Estancia ), %w( Estancia ) ]
+        when "wrong_headers" then rows = [ %w( descripcion nombre ), %w( Estancia Otro ), %w( Quirófano Más ) ]
+        else rows = [ %w( descripcion ), %w( Estancia ), %w( Quirófano ) ]
       end
     when "Compania"
       case type
-        when "repetido" then line_items = %w( "nombre" "Adeslas" "Adeslas" )
-        when "wrong_headers" then line_items = %w( "concepto" "Adeslas" "Adeslas" )
-        else line_items = %w( "nombre" "Adeslas" "Asisa" )
+        when "repetido" then rows = [ %w( nombre ), %w( Adeslas ), %w( Adeslas ) ]
+        when "wrong_headers" then rows = [ %w( concepto ), %w( Adeslas ), %w( Asisa ) ]
+        else rows = [ %w( nombre ), %w( Adeslas ), %w( Asisa ) ]
       end
     when "Especialidad"
       case type
-        when "repetido" then line_items = %w( "nombre" "Diagnosis" "Diagnosis" )
-        when "wrong_headers" then line_items = %w( "concepto" "Diagnosis" "Alergia" )
-        else line_items = %w( "nombre" "Diagnosis" "Alergia" )
+        when "repetido" then rows = [ %w( nombre ), %w( Alergia ), %w( Alergia ) ]
+        when "wrong_headers" then rows = [ %w( concepto ), %w( Diagnosis ), %w( Alergia ) ]
+        else rows = [ %w( nombre ), %w( Diagnosis ), %w( Alergia ) ]
       end
-    else line_items = [""]
+    else rows = [[]]
   end
-  line_items
+  rows
 end
