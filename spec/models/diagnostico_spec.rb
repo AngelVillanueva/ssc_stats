@@ -13,4 +13,5 @@ require 'spec_helper'
 
 describe Diagnostico do
   it { should belong_to :episodio }
+  it { should belong_to :tipo_coste_con_tarifa }
 end
