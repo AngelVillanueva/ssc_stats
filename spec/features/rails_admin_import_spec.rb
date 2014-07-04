@@ -66,7 +66,7 @@ describe "Import as an option for certains models" do
   end
   it "should ignore the file content when rows do not match all the model attributes" do
     models.each do |model|
-      upload_a_mixed_file_for model
+      upload_a_file_for 2, model, "mixed_wrong"
       expect{ click_save_button }.to change{ model.count }.by(0)
       expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
       expect( page ).to have_css( ".alert-error", text: I18n.t("errors.messages.no_created_records" ) )
@@ -79,13 +79,6 @@ end
 
 def upload_a_bad_file_for model
   a_file = "#{Rails.root}/spec/fixtures/test.jpg"
-  click_the_menu_link_for model.to_s.underscore
-  click_the_action_link_for "import"
-  attach_file "_admin_#{model.to_s.underscore}_import_archivo", a_file
-end
-
-def upload_a_mixed_file_for model
-  a_file = "#{Rails.root}/spec/fixtures/test_mixed.csv"
   click_the_menu_link_for model.to_s.underscore
   click_the_action_link_for "import"
   attach_file "_admin_#{model.to_s.underscore}_import_archivo", a_file
@@ -113,25 +106,29 @@ def file_content_for model, type = "normal"
     when "SubtipoCoste"
       case type
         when "repetido" then rows = [ %w( descripcion ), %w( Estancia ), %w( Estancia ) ]
-        when "wrong_headers" then rows = [ %w( descripcion nombre ), %w( Estancia Otro ), %w( Quirófano Más ) ]
+        when "wrong_headers" then rows = [ %w( nombre ), %w( Estancia ), %w( Quirófano ) ]
+        when "mixed_wrong" then rows = [ %w( descripcion nombre ), %w( Estancia Otro ), %w( Quirófano Más ) ]
         else rows = [ %w( descripcion ), %w( Estancia ), %w( Quirófano ) ]
       end
     when "Compania"
       case type
         when "repetido" then rows = [ %w( nombre ), %w( Adeslas ), %w( Adeslas ) ]
         when "wrong_headers" then rows = [ %w( concepto ), %w( Adeslas ), %w( Asisa ) ]
+        when "mixed_wrong" then rows = [ %w( concepto nombre ), %w( Estancia Adeslas ), %w( Quirófano Asisa ) ]
         else rows = [ %w( nombre ), %w( Adeslas ), %w( Asisa ) ]
       end
     when "Especialidad"
       case type
         when "repetido" then rows = [ %w( nombre ), %w( Alergia ), %w( Alergia ) ]
         when "wrong_headers" then rows = [ %w( concepto ), %w( Diagnosis ), %w( Alergia ) ]
+        when "mixed_wrong" then rows = [ %w( concepto descripcion ), %w( Diagnosis Estancia ), %w( Alergia Quirófano ) ]
         else rows = [ %w( nombre ), %w( Diagnosis ), %w( Alergia ) ]
       end
     when "Usuario"
       case type
       when "repetido" then rows = [ %w( email password password_confirmation ), %w( test@example.com foobarfoo foobarfoo ), %w( test@example.com foobarfoo foobarfoo ) ]
       when "wrong_headers" then rows = [ %w( email password password_confirmations ), %w( test@example.com foobarfoo foobarfoo ), %w( sample@example.net foobarfoo foobarfoo ) ]
+      when "mixed_wrong" then rows = [ %w( nombre email password password_confirmations ), %w( myself test@example.com foobarfoo foobarfoo ), %w( myself sample@example.net foobarfoo foobarfoo ) ]
       else rows = [ %w( email password password_confirmation ), %w( test@example.com foobarfoo foobarfoo ), %w( sample@example.net foobarfoo foobarfoo ) ]
       end
     else rows = [[]]
