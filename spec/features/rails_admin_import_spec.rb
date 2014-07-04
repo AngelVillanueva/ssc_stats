@@ -73,12 +73,26 @@ describe "Import as an option for certains models" do
       expect( page ).to have_css( ".alert-notice", text: I18n.t("errors.messages.bad_row_headers" ) )
     end
   end
+  it "should advise when the file format is ok but the content is corrupted" do
+    upload_a_corrupted_file_for Usuario
+    expect{ click_save_button }.to change{ Usuario.count }.by(0)
+    expect( page ).to have_css( ".alert-success", text: I18n.t("exitos.messages.created_records", records: 0) )
+    expect( page ).to have_css( ".alert-error", text: I18n.t("errors.messages.no_created_records" ) )
+    expect( page ).to have_css( ".alert-notice", text: I18n.t("errors.messages.corrupted_content" ) )
+  end
 end
 
 ### AUX METHODS
 
 def upload_a_bad_file_for model
   a_file = "#{Rails.root}/spec/fixtures/test.jpg"
+  click_the_menu_link_for model.to_s.underscore
+  click_the_action_link_for "import"
+  attach_file "_admin_#{model.to_s.underscore}_import_archivo", a_file
+end
+
+def upload_a_corrupted_file_for model
+  a_file = "#{Rails.root}/spec/fixtures/test_user.csv"
   click_the_menu_link_for model.to_s.underscore
   click_the_action_link_for "import"
   attach_file "_admin_#{model.to_s.underscore}_import_archivo", a_file

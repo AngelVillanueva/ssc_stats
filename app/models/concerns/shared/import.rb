@@ -10,7 +10,7 @@ module Shared::Import
       creados = 0
       fallados = 0
       # iterate through CSV file rows trying to create new records
-      CSV.foreach( file_path, headers: true ) do |row|
+      objects = CSV.foreach( file_path, headers: true ) do |row|
         begin
           object = self.new row.to_hash
           if object.valid?
@@ -29,6 +29,7 @@ module Shared::Import
       # response including errors if any
       resultado[:creados] = creados
       resultado[:fallados] = fallados
+      resultado[:errors] << I18n.t( "errors.messages.corrupted_content" ) unless objects
       resultado
     end
 

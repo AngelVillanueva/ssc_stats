@@ -126,6 +126,7 @@ es:
       created_records: "No fue posible crear %{records} registros, por las siguientes razones:"
       no_created_records: "No se creó ningún nuevo registro, por las siguientes razones:"
       bad_row_headers: "Los encabezados de las columnas no son correctos."
+      corrupted_content: "El contenido del archivo no es válido, revise el formato."
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
