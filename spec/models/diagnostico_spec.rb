@@ -16,6 +16,10 @@ describe Diagnostico do
   it { should belong_to :tipo_coste_con_tarifa }
   it { should belong_to :codigo_omc }
 
+  it { should validate_presence_of :episodio }
+  it { should validate_presence_of :tipo_coste_con_tarifa }
+  it { should validate_presence_of :codigo_omc }
+
   describe "with a valid TipoCoste should be valid" do
     let(:subtipo) { FactoryGirl.create( :subtipo_coste, descripcion: "Diagnostico" ) }
     let(:tipo_coste) { FactoryGirl.create( :tipo_coste_con_tarifa, subtipo_coste: subtipo ) }

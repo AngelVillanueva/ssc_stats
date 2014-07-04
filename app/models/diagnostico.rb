@@ -13,6 +13,7 @@ class Diagnostico < ActiveRecord::Base
   belongs_to :tipo_coste_con_tarifa
   belongs_to :codigo_omc
 
+  validates :episodio, :tipo_coste_con_tarifa, :codigo_omc, presence: true
   validates_with TipoValidator, nombres: %w( Diagnóstico Quirófano Quirofano ) # check that the TipoCoste fits the Subtipo
 
   rails_admin do

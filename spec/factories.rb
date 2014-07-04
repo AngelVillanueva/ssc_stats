@@ -50,6 +50,7 @@ FactoryGirl.define do
   factory :diagnostico do
     episodio
     tipo_coste_con_tarifa
+    codigo_omc
   end
   factory :codigo_omc do
     descripcion "Laparoscopia"
