@@ -2,10 +2,12 @@
 #
 # Table name: diagnosticos
 #
-#  id          :integer          not null, primary key
-#  episodio_id :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                       :integer          not null, primary key
+#  episodio_id              :integer
+#  created_at               :datetime
+#  updated_at               :datetime
+#  tipo_coste_con_tarifa_id :integer
+#  codigo_omc_id            :integer
 #
 
 class Diagnostico < ActiveRecord::Base

@@ -1,4 +1,16 @@
+# == Schema Information
+#
+# Table name: codigos_omc
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  descripcion :string(255)
+#  codigo      :integer
+#
+
 class CodigoOmc < ActiveRecord::Base
+  has_many :diagnosticos
   validates :codigo, :descripcion, presence: true
   validates :codigo, uniqueness: true
 
