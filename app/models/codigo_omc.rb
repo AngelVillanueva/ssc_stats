@@ -19,6 +19,8 @@ class CodigoOmc < ActiveRecord::Base
     list do
       field :id
       field :descripcion
+      field :diagnosticos
+      field :grupo_quirurgico
       field :created_at
       field :updated_at
     end
