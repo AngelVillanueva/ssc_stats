@@ -52,8 +52,11 @@ FactoryGirl.define do
     tipo_coste_con_tarifa
     codigo_omc
   end
+  factory :grupo_quirurgico do
+  end
   factory :codigo_omc do
     codigo 1234
     descripcion "Laparoscopia"
+    grupo_quirurgico
   end
 end
