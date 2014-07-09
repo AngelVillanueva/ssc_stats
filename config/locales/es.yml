@@ -294,6 +294,10 @@ es:
         descripcion: "Descripción"
         created_at: "Fecha de creación"
         updated_at: "Última actualización"
+      grupo_quirurgico:
+        nombre: "Nombre"
+        created_at: "Fecha de creación"
+        updated_at: "Última actualización"
     models:
       usuario: "Usuario"
       precio: "Precio"
@@ -308,6 +312,7 @@ es:
       csv_file: "Fichero de importación"
       diagnostico: "Diagnóstico"
       codigo_omc: "Código OMC"
+      grupo_quirurgico: "Grupo Quirúrgico"
   exitos:
     messages:
       created_records: "%{records} nuevos registros creados"

@@ -53,6 +53,7 @@ FactoryGirl.define do
     codigo_omc
   end
   factory :grupo_quirurgico do
+    nombre "Q1"
   end
   factory :codigo_omc do
     codigo 1234
