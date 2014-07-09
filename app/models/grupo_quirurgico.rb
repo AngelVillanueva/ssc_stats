@@ -1,4 +1,5 @@
 class GrupoQuirurgico < ActiveRecord::Base
+  has_many :codigos_omc, class: CodigoOmc
   validates :nombre, presence: true, uniqueness: true
 
   rails_admin do
