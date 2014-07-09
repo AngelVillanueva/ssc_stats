@@ -11,7 +11,8 @@
 
 class CodigoOmc < ActiveRecord::Base
   has_many :diagnosticos
-  validates :codigo, :descripcion, presence: true
+  belongs_to :grupo_quirurgico
+  validates :codigo, :descripcion, :grupo_quirurgico, presence: true
   validates :codigo, uniqueness: true
 
   rails_admin do
