@@ -16,6 +16,9 @@ class CodigoOmc < ActiveRecord::Base
   validates :codigo, uniqueness: true
 
   rails_admin do
+    object_label_method do
+      :custom_label_method
+    end
     list do
       field :id
       field :descripcion
@@ -24,5 +27,8 @@ class CodigoOmc < ActiveRecord::Base
       field :created_at
       field :updated_at
     end
+  end
+  def custom_label_method
+    "#{self.codigo} - #{self.descripcion}"
   end
 end
