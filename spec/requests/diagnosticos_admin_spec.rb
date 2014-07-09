@@ -38,6 +38,7 @@ describe "Diagnosticos management" do
       expect( codigo_omc ).to be_valid
       expect( diagnostico ).to be_valid
       click_the_menu_link_for "diagnostico"
+      expect( page ).to have_css( "td.codigo_omc_field", text: codigo_omc.codigo )
       expect( page ).to have_css( "td.codigo_omc_field", text: codigo_omc.descripcion )
     end
     it "by accepting a valid Tipo de Coste" do

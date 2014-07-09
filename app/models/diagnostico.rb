@@ -20,7 +20,11 @@ class Diagnostico < ActiveRecord::Base
     list do
       field :id
       field :episodio
-      field :codigo_omc
+      field :codigo_omc do
+        pretty_value do
+          bindings[:object].codigo_omc.codigo.to_s << " - " << bindings[:object].codigo_omc.descripcion
+        end
+      end
       field :tipo_coste_con_tarifa do
         label I18n.t("activerecord.attributes.diagnostico.tipo_coste_con_tarifa_id")
       end

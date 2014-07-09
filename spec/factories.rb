@@ -53,6 +53,7 @@ FactoryGirl.define do
     codigo_omc
   end
   factory :codigo_omc do
+    codigo 1234
     descripcion "Laparoscopia"
   end
 end

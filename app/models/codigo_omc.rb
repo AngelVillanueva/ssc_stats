@@ -1,4 +1,7 @@
 class CodigoOmc < ActiveRecord::Base
+  validates :codigo, :descripcion, presence: true
+  validates :codigo, uniqueness: true
+
   rails_admin do
     list do
       field :id
